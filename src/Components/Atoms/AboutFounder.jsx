@@ -14,7 +14,7 @@ function AboutFounder(props) {
           {/* User Details */}
           <div className="flex flex-col items-center md:items-start w-full md:w-1/3 relative">
             <img
-              src="https://images.pexels.com/photos/6944388/pexels-photo-6944388.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              src="https://content.jdmagicbox.com/v2/comp/mumbai/v8/022pxx22.xx22.170729162821.r4v8/catalogue/vinay-kumar-santacruz-east-mumbai-dietitians-pg53gjdphc.jpg"
               alt="Founder"
               className="rounded-xl object-cover h-[450px]"
             />

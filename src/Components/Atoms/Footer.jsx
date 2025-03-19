@@ -29,7 +29,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-orange-500">Contact Us</h3>
             <p className="mt-2 pr-8">📍 723 The Lotus Room, Science City, Ahmedabad, Gujarat 380060 </p>
             <p>📞 +91 9989725624</p>
-            <p>✉️ yogastudio@gmail.com</p>
+            <p>✉️ lotusroom@gmail.com</p>
           </div>
   
           {/* Social Media */}

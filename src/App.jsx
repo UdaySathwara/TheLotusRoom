@@ -12,6 +12,8 @@ import Schedule from './Components/Atoms/Schedule';
 import Classes from './Pages/Classes';
 import OnlineClasses from './Components/Atoms/OnlineClasses';
 import Cources from './Pages/Cources';
+import Shop from './Pages/Shop';
+import Contact from './Pages/Contact';
 
 function App(props) {
   return (
@@ -28,6 +30,8 @@ function App(props) {
         <Route path='classes' element={<Classes />} />
         <Route path='online-classes' element={<OnlineClasses />} />
         <Route path='courses' element={<Cources />} />
+        <Route path='shop' element={<Shop />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </BrowserRouter>

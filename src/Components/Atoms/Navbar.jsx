@@ -9,10 +9,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="p-3 absolute top-0 w-full z-50 bg-black lg:bg-transparent">
-      <div className="container mx-auto flex items-center justify-between md:justify-center gap-14">
+    <nav className="p-3 absolute top-0 w-full z-50 bg-black lg:bg-transparent md:bg-transparent">
+      <div className="container mx-auto flex items-center  md:justify-center justify-between gap-12 md:gap-6">
         {/* Left Links */}
-        <div className="hidden md:flex justify-center items-center space-x-6">
+        <div className="hidden md:flex justify-center items-center space-x-6 md:space-x-5">
           <Link
             to="/about"
             className="text-white hover:text-gray-300 hover:underline hover:underline-offset-8 "
@@ -38,14 +38,14 @@ const Navbar = () => {
           <Link to="/" className="text-white text-2xl font-bold">
             <img
               src="https://cdn-icons-png.flaticon.com/512/10077/10077968.png"
-              alt=""
+              alt="Logo"
               className="size-8"
             />
           </Link>
         </div>
 
-        {/* Right Links */}
-        <div className="hidden md:flex space-x-6">
+        {/* Right Links + Login Button */}
+        <div className="hidden md:flex space-x-6 items-center md:space-x-5">
           <Link
             to="/courses"
             className="text-white hover:text-gray-300 hover:underline hover:underline-offset-8 "
@@ -53,16 +53,22 @@ const Navbar = () => {
             Courses
           </Link>
           <Link
-            to="/events"
+            to="/shop"
             className="text-white hover:text-gray-300 hover:underline hover:underline-offset-8 "
           >
-            Events
+            Shop
           </Link>
           <Link
             to="/contact"
             className="text-white hover:text-gray-300 hover:underline hover:underline-offset-8 "
           >
             Contact
+          </Link>
+          {/* Login Button (Hidden on Small & Medium Screens) */}
+          <Link
+            to="/login"
+            className="hidden md:flex md:right-4 bg-transparent border-2 text-white px-8 py-2 md:px-6 shadow-md hover:text-green-500 hover:border-green-500  hover:bg-gray-200/10 transition absolute right-12 font-medium">
+            Login
           </Link>
         </div>
 
@@ -120,11 +126,11 @@ const Navbar = () => {
             Courses
           </Link>
           <Link
-            to="/events"
+            to="/shop"
             className="text-white hover:text-gray-300 hover:underline hover:underline-offset-8 "
             onClick={() => setIsMenuOpen(false)}
           >
-            Events
+            Shop
           </Link>
           <Link
             to="/contact"
@@ -132,6 +138,14 @@ const Navbar = () => {
             onClick={() => setIsMenuOpen(false)}
           >
             Contact
+          </Link>
+          {/* Login Button in Mobile Menu */}
+          <Link
+            to="/login"
+            className="bg-green-500 text-white px-4 py-2 rounded shadow-md hover:bg-green-600 transition"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Login
           </Link>
         </div>
       )}

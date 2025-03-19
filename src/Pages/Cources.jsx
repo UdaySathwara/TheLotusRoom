@@ -108,13 +108,13 @@ function Courses() {
       <BackToTop />
 
       <section
-        className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"
+        className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-bottom bg-no-repeat relative p-6"
         style={{
           backgroundImage:
-            "url('https://files.oaiusercontent.com/file-Ci2D3XhG5wBftasvsfqFhW?se=2025-03-18T12%3A09%3A01Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D082663d9-be6b-4b94-914c-10483406e759.webp&sig=CeyeYkYWYqUKQOD1l5NRuauf4kGAxN%2BhZTqx0ApoZIM%3D')",
+            "url('https://ecom-static-site-prod.s3.ap-south-1.amazonaws.com/Courses/TTC/new11/900_hrs_TTC.jpg')",
         }}
       >
-        <div className="absolute inset-0 bg-black/70"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-3xl px-4">
@@ -199,7 +199,7 @@ function Courses() {
       </div>
 
         {/* Courses */}
-        <div className="flex flex-col justify-center items-center pb-10 min-h-screen bg-gray-50">
+        <div className="flex flex-col justify-center items-center pb-10 min-h-screen bg-gray-50 p-4">
         <span className="text-4xl mt-6 text-center font-medium">
           Our Exciting Courses
         </span>

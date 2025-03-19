@@ -12,7 +12,7 @@ function Classes() {
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/8436719/pexels-photo-8436719.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+            "url('https://ecom-static-site-prod.s3.ap-south-1.amazonaws.com/SEO-New-Images/Courses/yoga-asana-regular-classes-for-men.webp')",
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>

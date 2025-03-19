@@ -124,7 +124,7 @@ function Trainer(props) {
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"
         style={{
           backgroundImage:
-            "url('https://my-s3-images-bucket.s3.amazonaws.com/img/image_1719238914706.jpeg')",
+            "url('https://www.isfdcourses.com/wp-content/uploads/2023/03/500-yoga-teacher-training-course.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black/55"></div>
