@@ -3,6 +3,7 @@ import Testimonials from "../Components/Atoms/Testimonials";
 import AboutFounder from "../Components/Atoms/AboutFounder";
 import BackToTop from "../Components/Atoms/BacktoTop";
 import Schedule from "../Components/Atoms/Schedule";
+import { Link } from "react-router-dom";
 
 function Home() {
   const courses = [
@@ -96,6 +97,7 @@ function Home() {
     },
   ];
 
+
   return (
     <>
       <BackToTop />
@@ -128,9 +130,9 @@ function Home() {
             community and enhance your well-being with personalized classes and
             guided sessions.
           </p>
-          <button className="bg-transparent border border-white px-6 py-3 rounded-lg hover:bg-white/15 font-serif">
+          <Link className="bg-transparent border border-white px-6 py-3 rounded-lg hover:bg-white/15 font-serif" to="/classes">
             See Our Classes
-          </button>
+          </Link>
         </div>
       </div>
 
