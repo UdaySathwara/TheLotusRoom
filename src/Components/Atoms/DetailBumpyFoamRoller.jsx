@@ -1,67 +1,67 @@
-// DetailYogaSpice.js
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import BackToTop from "./BacktoTop";
 import { CartContext } from "./CartContext";
 
-const DetailYogaSpice = () => {
+const DetailBumpyFoamRoller = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [mainImage, setMainImage] = useState(
-    "https://hatha.qodeinteractive.com/wp-content/uploads/2020/08/shop1-List-img.jpg"
+    "https://www.yogikuti.com/wp-content/uploads/2024/10/1.jpg"
   );
 
   const thumbnails = [
-    "https://hatha.qodeinteractive.com/wp-content/uploads/2020/08/shop1-List-img.jpg",
-    "https://hatha.qodeinteractive.com/wp-content/uploads/2020/08/Shop1-List-img1.jpg",
-    "https://hatha.qodeinteractive.com/wp-content/uploads/2020/08/Shop1-List-img2.jpg",
+    "https://www.yogikuti.com/wp-content/uploads/2024/10/1.jpg",
+    "https://www.yogikuti.com/wp-content/uploads/2024/10/3.jpg",
+    "https://www.yogikuti.com/wp-content/uploads/2024/10/4.jpg",
   ];
-  
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
-    
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { cart, addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
 
   const increaseQuantity = () => setQuantity((prev) => prev + 1);
-  const decreaseQuantity = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  const decreaseQuantity = () =>
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
   const handleAddToCart = () => {
     const product = {
-      id: 1,
-      name: "Yoga Spice",
-      price: 500.0,
-      img: "https://hatha.qodeinteractive.com/wp-content/uploads/2020/08/shop1-List-img.jpg",
-    };
+        id: 8,
+        name: "Bumpy Foam Roller",
+        price: "449.00",
+        img: "https://www.yogikuti.com/wp-content/uploads/2024/10/1.jpg",
+        path: "/detail-bumpy-foam-roller",
+      };
     addToCart(product, quantity); // Pass selected quantity
-  
   };
 
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
   const navigate = useNavigate();
 
   const products = [
-    {
-      id: 2,
-      name: "Pink mat",
-      price: "300.00",
-      img: "https://hatha.qodeinteractive.com/wp-content/uploads/2020/08/shop3-list-img.jpg",
-      path: "/detail-pink-mat",
-    },
-    {
-      id: 3,
-      name: "Yoga Wheel",
-      price: "199.00",
-      img: "https://hatha.qodeinteractive.com/wp-content/uploads/2020/08/h1-shopimg-img2-1.jpg",
-      path: "/detail-yoga-wheel",
-    },
-    {
-      id: 4,
-      name: "Blue mat",
-      price: "300.00",
-      img: "https://hatha.qodeinteractive.com/wp-content/uploads/2020/08/shop9-list-img1.jpg",
-      path: "/detail-blue-mat",
-    },
+      { 
+        id: 1,
+        name: "Yoga spice",
+        price: "500.00",
+        img: "https://hatha.qodeinteractive.com/wp-content/uploads/2020/08/shop1-List-img.jpg",
+        path: "/detail-yoga-spice",
+      },
+      {
+        id: 2,
+        name: "Pink mat",
+        price: "300.00",
+        img: "https://hatha.qodeinteractive.com/wp-content/uploads/2020/08/shop3-list-img.jpg",
+        path: "/detail-pink-mat",
+      },
+      {
+        id: 3,
+        name: "Yoga Wheel",
+        price: "199.00",
+        img: "https://hatha.qodeinteractive.com/wp-content/uploads/2020/08/h1-shopimg-img2-1.jpg",
+        path: "/detail-yoga-wheel",
+      },
   ];
 
   return (
@@ -82,7 +82,9 @@ const DetailYogaSpice = () => {
           onClick={() => navigate("/cart")}
         >
           <span className="material-symbols-outlined">shopping_bag</span>
-          <span className="text-xs bg-[#8e5d36] text-white w-5 h-5 flex justify-center items-center rounded-full absolute top-1 right-0">{totalItems}</span>
+          <span className="text-xs bg-[#8e5d36] text-white w-5 h-5 flex justify-center items-center rounded-full absolute top-1 right-0">
+            {totalItems}
+          </span>
         </button>
       </div>
 
@@ -107,33 +109,30 @@ const DetailYogaSpice = () => {
         </div>
 
         <div className="lg:w-1/2 lg:pr-16 text-center lg:text-left flex flex-col p-4">
-          <h1 className="text-3xl font-medium mb-2 text-[#8e5d36]">
-            Yoga Spice
-          </h1>
+          <h1 className="text-3xl font-medium mb-2 text-[#8e5d36]">Bumpy Foam Roller</h1>
           <div className="text-2xl text-orange-600 font-medium mb-4">
-            ₹ 500.00
+            ₹ 449.00
           </div>
           <p className="mb-4 text-base leading-relaxed">
-            A warming blend of Ayurvedic herbs and spices to enhance relaxation
-            and balance. Perfect for teas, lattes, or wellness rituals.
+          The Bumpy Foam Roller is designed to relieve muscle tension, enhance recovery, and improve flexibility through deep tissue massage. Its unique textured surface targets tight muscles and trigger points, making it an essential tool for post-workout recovery and mobility training.
           </p>
 
           <div className="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:gap-4 justify-center lg:justify-start mb-4">
-            <div className="flex items-center border border-gray-300 rounded overflow-hidden">
+            <div className="flex items-center border border-orange-500 rounded overflow-hidden">
               <button
-                className="bg-gray-50 p-2 text-lg font-bold hover:bg-gray-300"
+                className=" p-2 text-lg font-bold hover:bg-orange-300"
                 onClick={decreaseQuantity}
               >
                 −
               </button>
               <input
                 type="text"
-                className="w-10 text-center border-x border-gray-300"
+                className="w-10 text-center border-x border-orange-500"
                 value={quantity}
                 readOnly
               />
               <button
-                className="bg-gray-50 p-2 text-lg font-bold hover:bg-gray-300"
+                className=" p-2 text-lg font-bold hover:bg-orange-300"
                 onClick={increaseQuantity}
               >
                 +
@@ -150,15 +149,13 @@ const DetailYogaSpice = () => {
 
           <div className="mb-4 flex flex-col space-y-1 text-base">
             <p>
-              <strong>In Stock :</strong> 101
+              <strong>In Stock :</strong> 54
             </p>
             <p>
-              <strong>Category : </strong>Yoga & Meditation Support, Health &
-              Wellness Supplements
+              <strong>Category : </strong>YMassage & Recovery Tools, Flexibility & Mobility
             </p>
             <p>
-              <strong>Tag : </strong>Relaxation & Balance, Natural Ingredients,
-              Holistic Healing
+              <strong>Tag : </strong>Post-Workout Recovery, Fitness & Wellness Accessories
             </p>
           </div>
         </div>
@@ -184,17 +181,12 @@ const DetailYogaSpice = () => {
         <div className="mt-4 border border-gray-300 p-4 flex justify-center items-center ">
           {activeTab === 0 ? (
             <p>
-              Yoga Spice is a carefully curated blend of Ayurvedic herbs and
-              spices designed to support overall well-being. Crafted with
-              premium ingredients, it enhances relaxation, promotes digestion,
-              and helps restore balance to the body and mind. Ideal for teas,
-              lattes, and wellness recipes, this aromatic blend offers a natural
-              way to elevate your daily routine.
+              The Bumpy Foam Roller is a must-have for athletes, yogis, and fitness enthusiasts looking to release muscle tightness, improve circulation, and speed up recovery. Crafted from high-density EVA foam with a firm inner core, it provides deep tissue massage and myofascial release. The bumpy, textured surface mimics a massage therapist’s hands, effectively targeting knots and sore muscles. Lightweight and portable, it’s perfect for use at home, the gym, or on the go.
             </p>
           ) : (
             <span className="text-center">
-              <p>Weight : 0.5 kg </p>
-              <p>Dimensions : 16 × 6 × 12 cm</p>
+              <p>Weight : 600 g – 1 kg  </p>
+              <p>Dimensions : 33 cm × 14 cm  </p>
             </span>
           )}
         </div>
@@ -236,4 +228,4 @@ const DetailYogaSpice = () => {
   );
 };
 
-export default DetailYogaSpice;
+export default DetailBumpyFoamRoller

@@ -15,10 +15,19 @@ import Cources from "./Pages/Cources";
 import Shop from "./Pages/Shop";
 import Contact from "./Pages/Contact";
 import DetailYogaSpice from "./Components/Atoms/DetailYogaSpice";
+import DetailPinkMat from "./Components/Atoms/DetailPinkMat";
+import Cart from "./Components/Atoms/Cart";
+import { CartProvider } from "./Components/Atoms/CartContext";  
+import DetailYogaWheel from "./Components/Atoms/DetailYogaWheel";
+import DetailBlueMat from "./Components/Atoms/DetailBlueMat";
+import DetailYogaPillow from "./Components/Atoms/DetailYogaPillow";
+import DetailYogaBlanket from "./Components/Atoms/DetailYogaBlanket";
+import DetailYogaStrap from "./Components/Atoms/DetailYogaStrap";
+import DetailBumpyFoamRoller from "./Components/Atoms/DetailBumpyFoamRoller";
 
 const AppContent = () => {
-  const location = useLocation(); // Get current path
-  const hideNavbarPaths = ["/detail-yoga-spice"]; // Define paths where navbar should be hidden
+  const location = useLocation(); 
+  const hideNavbarPaths = ["/detail-yoga-spice", "/detail-pink-mat", "/cart", "/detail-yoga-wheel", "/detail-blue-mat", "/detail-yoga-pillow", "/detail-yoga-blanket", "/detail-yoga-strap", "/detail-bumpy-foam-roller"]; 
 
   return (
     <>
@@ -37,6 +46,14 @@ const AppContent = () => {
         <Route path="/shop" element={<Shop />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/detail-yoga-spice" element={<DetailYogaSpice />} />
+        <Route path="/detail-pink-mat" element={<DetailPinkMat />} />
+        <Route path="/detail-yoga-wheel" element={<DetailYogaWheel / >} />
+        <Route path="/detail-blue-mat" element={<DetailBlueMat />} />
+        <Route path="/detail-yoga-pillow" element={<DetailYogaPillow />} />
+        <Route path="/detail-yoga-blanket" element={<DetailYogaBlanket />} />
+        <Route path="/detail-yoga-strap" element={<DetailYogaStrap />} />
+        <Route path="/detail-bumpy-foam-roller" element={<DetailBumpyFoamRoller />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </>
@@ -45,9 +62,11 @@ const AppContent = () => {
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <CartProvider>  {/* Wrap the app with CartProvider */}
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

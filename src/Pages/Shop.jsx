@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState , useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import BackToTop from "../Components/Atoms/BacktoTop";
-import { p, path } from "framer-motion/client";
+import { useEffect } from "react";
+import { CartContext } from '../Components/Atoms/CartContext';
 
 const products = [
   {
@@ -63,7 +64,16 @@ const products = [
 ];
 
 const ProductGrid = () => {
-  const [cart, setCart] = useState([]);
+
+  const navigate = useNavigate();
+  const { cart } = useContext(CartContext);
+
+  // Calculate total items in cart
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   return (
     <div>
@@ -103,13 +113,22 @@ const ProductGrid = () => {
       </div>
 
       <div className="flex justify-between items-center lg:px-12 mt-5 px-4 md:px-8">
-        <span className="text-2xl p-3 sticky flex justify-center gap-2 font-medium items-center">
-          Products
-        </span>
-        <button className="bg-[#eddbcc] text-[#8e5d36] p-3 sticky flex justify-center gap-2 font-medium text-xl items-center">
-          <span class="material-symbols-outlined">shopping_bag</span>
-        </button>
-      </div>
+      <span className="text-2xl p-3 sticky flex justify-center gap-2 font-medium items-center">
+        Products
+      </span>
+      {/* Cart Button with Item Count */}
+      <button
+        className="relative bg-[#eddbcc] text-[#8e5d36] p-3  flex justify-center gap-2 font-medium text-xl items-center"
+        onClick={() => navigate("/cart")}
+      >
+        <span className="material-symbols-outlined">shopping_bag</span>
+        {totalItems > 0 && (
+          <span className="text-xs bg-[#8e5d36] text-white w-5 h-5 flex justify-center items-center rounded-full absolute top-1 right-0">
+            {totalItems}
+          </span>
+        )}
+      </button>
+    </div>
 
       <div className="flex justify-center pb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8 my-10 px-4 md:px-10 lg:px-14">
