@@ -1,107 +1,110 @@
 import React from "react";
 import BackToTop from "../Components/Atoms/BacktoTop";
+import { useEffect } from "react";
 
 function Courses() {
+  const courses = [
+    {
+      name: "Psycho Yoga Therapy Course",
+      time: "90 HRS",
+      fees: "14999",
+      schedule: "Monday - Friday",
+      image:
+        "https://images.pexels.com/photos/4498220/pexels-photo-4498220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    {
+      name: "Meditation Certification Course",
+      time: "20 HRS",
+      fees: "4999",
+      schedule: "Monday - Friday",
+      image:
+        "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg?auto=compress&cs=tinysrgb&w=600",
+    },
+    {
+      name: "Pranayama Certification Course",
+      time: "20 HRS",
+      fees: "4999",
+      schedule: "Monday - Friday",
+      image:
+        "https://images.pexels.com/photos/6648550/pexels-photo-6648550.jpeg?auto=compress&cs=tinysrgb&w=600",
+    },
+    {
+      name: "Aerial Yoga Certification Course",
+      time: "60 HRS",
+      fees: "20000",
+      schedule: "Monday - Friday",
+      image:
+        "https://images.pexels.com/photos/4324101/pexels-photo-4324101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    {
+      name: "Yoga instructor certification course ",
+      time: "100 HRS",
+      fees: "16999",
+      schedule: "Monday - Friday",
+      image:
+        "https://images.pexels.com/photos/6246659/pexels-photo-6246659.jpeg?auto=compress&cs=tinysrgb&w=600",
+    },
+    {
+      name: "Diet Therapy and Yoga Therapy Teacher Training",
+      time: "3 Months",
+      fees: "20000",
+      schedule: "Monday - Friday",
+      image:
+        "https://images.pexels.com/photos/3094215/pexels-photo-3094215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    {
+      name: "Yoga Nidra Teacher Training Certification Course",
+      time: "100 HRS",
+      fees: "10000",
+      schedule: "Monday - Friday",
+      image:
+        "https://images.pexels.com/photos/13347104/pexels-photo-13347104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    },
+    {
+      name: "Prenatal/Postnatal Certification Course",
+      time: "85 HRS",
+      fees: "19999",
+      schedule: "Monday - Friday",
+      image:
+        "https://images.pexels.com/photos/7155545/pexels-photo-7155545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    {
+      name: "Weight loss teacher training course",
+      time: "50 HRS",
+      fees: "14999",
+      schedule: "Monday - Friday",
+      image:
+        "https://images.pexels.com/photos/5714344/pexels-photo-5714344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    },
+    {
+      name: "Kids Yoga Certification Course",
+      time: "70 HRS",
+      fees: "14999",
+      schedule: "Monday - Friday",
+      image:
+        "https://images.pexels.com/photos/5063299/pexels-photo-5063299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    {
+      name: "Inner Transformation Workshop",
+      time: "2 DAYS",
+      fees: "4999",
+      schedule: "Monday - Friday",
+      image:
+        "https://plus.unsplash.com/premium_photo-1700061656514-188db09b885e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8SW5uZXIlMjBUcmFuc2Zvcm1hdGlvbiUyMFdvcmtzaG9wJTIweW9nYXxlbnwwfHwwfHx8MA%3D%3D",
+    },
+    {
+      name: "Yoga Nindra Teacher Training Certification Course",
+      time: "100 HRS",
+      fees: "10000",
+      schedule: "Monday - Friday",
+      image:
+        "https://images.pexels.com/photos/11387441/pexels-photo-11387441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+  ];
 
-    const courses = [
-        {
-          name: "Psycho Yoga Therapy Course",
-          time: "90 HRS",
-          fees: "14999",
-          schedule: "Monday - Friday",
-          image:
-            "https://images.pexels.com/photos/4498220/pexels-photo-4498220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        },
-        {
-          name: "Meditation Certification Course",
-          time: "20 HRS",
-          fees: "4999",
-          schedule: "Monday - Friday",
-          image:
-            "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg?auto=compress&cs=tinysrgb&w=600",
-        },
-        {
-          name: "Pranayama Certification Course",
-          time: "20 HRS",
-          fees: "4999",
-          schedule: "Monday - Friday",
-          image:
-            "https://images.pexels.com/photos/6648550/pexels-photo-6648550.jpeg?auto=compress&cs=tinysrgb&w=600",
-        },
-        {
-          name: "Aerial Yoga Certification Course",
-          time: "60 HRS",
-          fees: "20000",
-          schedule: "Monday - Friday",
-          image:
-            "https://images.pexels.com/photos/4324101/pexels-photo-4324101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        },
-        {
-          name: "Yoga instructor certification course ",
-          time: "100 HRS",
-          fees: "16999",
-          schedule: "Monday - Friday",
-          image:
-            "https://images.pexels.com/photos/6246659/pexels-photo-6246659.jpeg?auto=compress&cs=tinysrgb&w=600",
-        },
-        {
-          name: "Diet Therapy and Yoga Therapy Teacher Training",
-          time: "3 Months",
-          fees: "20000",
-          schedule: "Monday - Friday",
-          image:
-            "https://images.pexels.com/photos/3094215/pexels-photo-3094215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        },
-        {
-          name: "Yoga Nidra Teacher Training Certification Course",
-          time: "100 HRS",
-          fees: "10000",
-          schedule: "Monday - Friday",
-          image:
-            "https://images.pexels.com/photos/13347104/pexels-photo-13347104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        },
-        {
-          name: "Prenatal/Postnatal Certification Course",
-          time: "85 HRS",
-          fees: "19999",
-          schedule: "Monday - Friday",
-          image:
-            "https://images.pexels.com/photos/7155545/pexels-photo-7155545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        },
-        {
-          name: "Weight loss teacher training course",
-          time: "50 HRS",
-          fees: "14999",
-          schedule: "Monday - Friday",
-          image:
-            "https://images.pexels.com/photos/5714344/pexels-photo-5714344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        },
-        {
-          name: "Kids Yoga Certification Course",
-          time: "70 HRS",
-          fees: "14999",
-          schedule: "Monday - Friday",
-          image:
-            "https://images.pexels.com/photos/5063299/pexels-photo-5063299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        },
-        {
-          name: "Inner Transformation Workshop",
-          time: "2 DAYS",
-          fees: "4999",
-          schedule: "Monday - Friday",
-          image:
-            "https://plus.unsplash.com/premium_photo-1700061656514-188db09b885e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8SW5uZXIlMjBUcmFuc2Zvcm1hdGlvbiUyMFdvcmtzaG9wJTIweW9nYXxlbnwwfHwwfHx8MA%3D%3D",
-        },
-        {
-          name: "Yoga Nindra Teacher Training Certification Course",
-          time: "100 HRS",
-          fees: "10000",
-          schedule: "Monday - Friday",
-          image:
-            "https://images.pexels.com/photos/11387441/pexels-photo-11387441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        },
-
-      ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
@@ -198,8 +201,8 @@ function Courses() {
         </ul>
       </div>
 
-        {/* Courses */}
-        <div className="flex flex-col justify-center items-center pb-10 min-h-screen bg-gray-50 p-4">
+      {/* Courses */}
+      <div className="flex flex-col justify-center items-center pb-10 min-h-screen bg-gray-50 p-4">
         <span className="text-4xl mt-6 text-center font-medium">
           Our Exciting Courses
         </span>

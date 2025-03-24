@@ -14,13 +14,13 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-orange-500">Quick Links</h3>
             <ul className="mt-2 space-y-2">
-              <li><a href="#" className="hover:text-orange-400 transition">Home</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition">About</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition">Trainer</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition">Classes</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition">Courses</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition">Events</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition">Contact</a></li>
+              <li><a href="/" className="hover:text-orange-400 transition">Home</a></li>
+              <li><a href="/about" className="hover:text-orange-400 transition">About</a></li>
+              <li><a href="/trainer" className="hover:text-orange-400 transition">Trainer</a></li>
+              <li><a href="/classes" className="hover:text-orange-400 transition">Classes</a></li>
+              <li><a href="/courses" className="hover:text-orange-400 transition">Courses</a></li>
+              <li><a href="/shop" className="hover:text-orange-400 transition">Shop</a></li>
+              <li><a href="/contact" className="hover:text-orange-400 transition">Contact</a></li>
             </ul>
           </div>
   

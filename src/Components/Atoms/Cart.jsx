@@ -34,20 +34,37 @@ const Cart = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 sm:p-6">
+    <div className="container mx-auto p-4 px-6 min-h-screen">
       <BackToTop />
-      <div className="flex items-center justify-between px-4 lg:pb-16 pb-6 pt-4">
+      <div className="flex items-center lg:justify-center justify-between lg:pb-16 pb-6 md:pb-6 p-4">
         <span
-          className="material-symbols-outlined text-xl cursor-pointer"
-          onClick={() => navigate(-1)}
-        >
+          className="material-symbols-outlined text-xl cursor-pointer xl:hidden"
+          onClick={() => navigate(-1)}>
           arrow_back_ios
         </span>
         <h2 className="text-2xl font-semibold text-center flex-1 ">My Cart</h2>
       </div>
 
       {cart.length === 0 ? (
-        <p>Your cart is empty</p>
+            <div className="flex items-center justify-center h-[500px] bg-white">
+            <div className="text-center">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/13539/13539700.png"
+                alt="Illustration of an empty shopping cart with stars around it"
+                className="mx-auto mb-4"
+                width="100"
+                height="100"
+              />
+              <h1 className="text-xl font-semibold text-gray-800">Your cart is empty</h1>
+              <p className="text-gray-500 mb-6">Looks like you haven't made your choice yet...</p>
+              <button
+                onClick={() => navigate("/shop")}
+                className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-50"
+              >
+                Start Shopping
+              </button>
+            </div>
+          </div>
       ) : (
         <div className="overflow-x-auto w-full lg:px-10 px-4">
           <table className="hidden sm:table w-full border-collapse text-center">
@@ -70,7 +87,7 @@ const Cart = () => {
                       alt={item.name}
                       className="w-12 h-12 sm:w-16 sm:h-16"
                     />
-                    <span className="text-center">{item.name}</span>
+                    <span className="text-center text-lg">{item.name}</span>
                   </td>
                   <td className="py-4 text-orange-500 whitespace-nowrap">
                     ₹ {item.price}.00
@@ -124,7 +141,7 @@ const Cart = () => {
                 <div className="flex items-center ">
                   <img src={item.img} alt={item.name} className="w-24 h-20 object-cover" />
                   <div className="flex-1">
-                    <h3 className="font-semibold flex justify-end">
+                    <h3 className="font-semibold  flex justify-end">
                       {item.name}
                     </h3>
                     <p className="text-orange-500 flex justify-end">
@@ -172,11 +189,11 @@ const Cart = () => {
             <h2 className="text-lg sm:text-2xl mb-4 font-medium font-serif">
               Cart totals
             </h2>
-            <div className="flex justify-between border-b py-2">
+            <div className="flex justify-between text-lg border-b py-2">
               <span>Subtotal</span>
               <span className="text-orange-500">₹ {totalPrice}.00</span>
             </div>
-            <div className="flex justify-between border-b py-2">
+            <div className="flex justify-between text-lg border-b py-2">
               <span>Total</span>
               <span className="text-orange-500">₹ {totalPrice}.00</span>
             </div>

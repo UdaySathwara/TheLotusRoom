@@ -194,7 +194,7 @@ function Contact() {
                 type="submit"
                 className="bg-green-500 text-white py-2 px-4 rounded shadow-md hover:bg-white hover:border-green-500 hover:text-green-500 border focus:outline-none flex gap-4 justify-center items-center"
               >
-                Send Via Whatsap
+                Send Via Whatsapp
                 <img
                   src="https://img.icons8.com/?size=100&id=16712&format=png&color=40C057"
                   alt="Normal Icon"

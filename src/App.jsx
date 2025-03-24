@@ -10,8 +10,8 @@ import Trainer from "./Pages/Trainer";
 import BackToTop from "./Components/Atoms/BacktoTop";
 import Schedule from "./Components/Atoms/Schedule";
 import Classes from "./Pages/Classes";
+import Courses from "./Pages/Courses";
 import OnlineClasses from "./Components/Atoms/OnlineClasses";
-import Cources from "./Pages/Cources";
 import Shop from "./Pages/Shop";
 import Contact from "./Pages/Contact";
 import DetailYogaSpice from "./Components/Atoms/DetailYogaSpice";
@@ -24,10 +24,14 @@ import DetailYogaPillow from "./Components/Atoms/DetailYogaPillow";
 import DetailYogaBlanket from "./Components/Atoms/DetailYogaBlanket";
 import DetailYogaStrap from "./Components/Atoms/DetailYogaStrap";
 import DetailBumpyFoamRoller from "./Components/Atoms/DetailBumpyFoamRoller";
+import Checkout from "./Components/Atoms/Checkout";
+import Login from "./Components/Atoms/Login";
+import ForgotPassword from "./Components/Atoms/ForgotPassword";
+import SignUp from "./Components/Atoms/SignUp";
 
 const AppContent = () => {
   const location = useLocation(); 
-  const hideNavbarPaths = ["/detail-yoga-spice", "/detail-pink-mat", "/cart", "/detail-yoga-wheel", "/detail-blue-mat", "/detail-yoga-pillow", "/detail-yoga-blanket", "/detail-yoga-strap", "/detail-bumpy-foam-roller"]; 
+  const hideNavbarPaths = ["/detail-yoga-spice", "/detail-pink-mat", "/cart", "/detail-yoga-wheel", "/detail-blue-mat", "/detail-yoga-pillow", "/detail-yoga-blanket", "/detail-yoga-strap", "/detail-bumpy-foam-roller", "/checkout", "/login", "/forgot-password", "/sign-up"]; 
 
   return (
     <>
@@ -42,19 +46,23 @@ const AppContent = () => {
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/classes" element={<Classes />} />
         <Route path="/online-classes" element={<OnlineClasses />} />
-        <Route path="/courses" element={<Cources />} />
+        <Route path="/courses" element={<Courses />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/detail-yoga-spice" element={<DetailYogaSpice />} />
         <Route path="/detail-pink-mat" element={<DetailPinkMat />} />
-        <Route path="/detail-yoga-wheel" element={<DetailYogaWheel / >} />
+        <Route path="/detail-yoga-wheel" element={<DetailYogaWheel />} />
         <Route path="/detail-blue-mat" element={<DetailBlueMat />} />
         <Route path="/detail-yoga-pillow" element={<DetailYogaPillow />} />
         <Route path="/detail-yoga-blanket" element={<DetailYogaBlanket />} />
         <Route path="/detail-yoga-strap" element={<DetailYogaStrap />} />
         <Route path="/detail-bumpy-foam-roller" element={<DetailBumpyFoamRoller />} />
         <Route path="/cart" element={<Cart />} />
-      </Routes>
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/sign-up" element={<SignUp />} />    
+        </Routes>
       <Footer />
     </>
   );

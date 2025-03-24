@@ -96,7 +96,14 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="bg-black flex flex-col items-center space-y-4 p-6 w-full absolute left-0">
+        <div className="bg-black flex flex-col items-center space-y-4 p-6 w-full absolute left-0 top-16">
+          <Link
+            to="/"
+            className="text-white hover:text-gray-300 hover:underline hover:underline-offset-8"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Home
+          </Link>
           <Link
             to="/about"
             className="text-white hover:text-gray-300 hover:underline hover:underline-offset-8 "

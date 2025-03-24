@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import BackToTop from "../Components/Atoms/BacktoTop";
+import { useEffect } from "react";
 
 function Trainer(props) {
   const trainers = [
@@ -115,6 +116,10 @@ function Trainer(props) {
     },
   ];
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+    
   return (
     <>
 
@@ -141,7 +146,7 @@ function Trainer(props) {
         </div>
       </section>
 
-      <div className="flex flex-col justify-center items-center p-6 min-h-[700px] bg-[#eddbcc]">
+      <div className="flex flex-col justify-center items-center p-10 min-h-[700px] bg-[#eddbcc]">
         <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

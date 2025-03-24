@@ -65,7 +65,7 @@ const DetailBlueMat = () => {
   ];
 
   return (
-    <div className="container mx-auto bg-grey-50 m-6 pb-10">
+    <div className="bg-grey-50 m-6 pb-10">
       <BackToTop />
       <div className="flex items-center justify-between px-10">
         <span
