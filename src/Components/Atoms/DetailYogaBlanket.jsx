@@ -69,7 +69,7 @@ const DetailYogaBlanket = () => {
       <BackToTop />
       <div className="flex items-center justify-between px-10">
         <span
-          className="material-symbols-outlined text-xl cursor-pointer"
+          className="material-symbols-outlined text-xl cursor-pointer xl:hidden"
           onClick={() => navigate(-1)}
         >
           arrow_back_ios

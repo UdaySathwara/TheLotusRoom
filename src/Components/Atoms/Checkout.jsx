@@ -37,7 +37,7 @@ const Checkout = () => {
       <BackToTop />
       <div className="flex items-center justify-between lg:pb-12 pb-8 pt-4">
         <span
-          className="material-symbols-outlined text-xl cursor-pointer"
+          className="material-symbols-outlined text-xl cursor-pointer xl:hidden"
           onClick={() => navigate(-1)}
         >
           arrow_back_ios

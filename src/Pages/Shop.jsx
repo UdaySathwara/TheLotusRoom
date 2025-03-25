@@ -83,7 +83,7 @@ const ProductGrid = () => {
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-bottom bg-no-repeat relative p-6"
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/6339715/pexels-photo-6339715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+            "url('https://files.oaiusercontent.com/file-Akw8V9M5TLtPczuf8tCHfy?se=2025-03-25T13%3A09%3A14Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Dd7db29e1-51fc-4898-81fa-b3675f05b747.webp&sig=SSEWnV/DtfAT8p/Ms1etoUQEwLItWdJIgaC0I1E8xQU%3D')",
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>

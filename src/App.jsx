@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { auth } from './Components/Atoms/Firebase';
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import Home from "./Pages/Home";
 import Navbar from "./Components/Atoms/Navbar";
 import Footer from "./Components/Atoms/Footer";
@@ -28,14 +30,16 @@ import Checkout from "./Components/Atoms/Checkout";
 import Login from "./Components/Atoms/Login";
 import ForgotPassword from "./Components/Atoms/ForgotPassword";
 import SignUp from "./Components/Atoms/SignUp";
+import YogaLibrary from './Components/Atoms/YogaLibrary';
 
-const AppContent = () => {
+
+const AppContent = ({ user, handleLogout }) => {
   const location = useLocation(); 
-  const hideNavbarPaths = ["/detail-yoga-spice", "/detail-pink-mat", "/cart", "/detail-yoga-wheel", "/detail-blue-mat", "/detail-yoga-pillow", "/detail-yoga-blanket", "/detail-yoga-strap", "/detail-bumpy-foam-roller", "/checkout", "/login", "/forgot-password", "/sign-up"]; 
+  const hideNavbarPaths = ["/detail-yoga-spice", "/detail-pink-mat", "/cart", "/detail-yoga-wheel", "/detail-blue-mat", "/detail-yoga-pillow", "/detail-yoga-blanket", "/detail-yoga-strap", "/detail-bumpy-foam-roller", "/checkout", "/login", "/forgot-password", "/sign-up", "/yoga-library"]; 
 
   return (
     <>
-      {!hideNavbarPaths.includes(location.pathname) && <Navbar />}
+      {!hideNavbarPaths.includes(location.pathname) && <Navbar user={user} handleLogout={handleLogout} />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<BackToTop />} />
@@ -62,17 +66,32 @@ const AppContent = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/sign-up" element={<SignUp />} />    
-        </Routes>
+        <Route path="/yoga-library" element={<YogaLibrary />} />
+      </Routes>
       <Footer />
     </>
   );
 };
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await signOut(auth);
+    setUser(null);
+  };
+
   return (
-    <CartProvider>  {/* Wrap the app with CartProvider */}
+    <CartProvider>
       <BrowserRouter>
-        <AppContent />
+        <AppContent user={user} handleLogout={handleLogout} />
       </BrowserRouter>
     </CartProvider>
   );

@@ -93,7 +93,7 @@ function Contact() {
             <div key={index} className="bg-white rounded-lg shadow-lg p-6">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
-                  <span className="fas fa-sun text-green-500 material-symbols-outlined">
+                  <span className="text-green-500 material-symbols-outlined">
                     location_on
                   </span>
                 </div>
