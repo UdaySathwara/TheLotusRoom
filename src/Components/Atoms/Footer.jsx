@@ -68,21 +68,22 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold text-orange-500">Follow Us</h3>
           <div className="flex justify-center md:justify-start gap-3 mt-3">
-            <a class="text-gray-400 hover:text-white mx-2" href="#">
-              <i class="fab fa-facebook-f"></i>
+            <a className="text-gray-400 hover:text-white mx-2" href="#">
+              <i className="fab fa-facebook-f"></i>
             </a>
-            <a class="text-gray-400 hover:text-white mx-2" href="#">
-              <i class="fab fa-twitter"></i>
+            <a className="text-gray-400 hover:text-white mx-2" href="#">
+              <i className="fab fa-twitter"></i>
             </a>
-            <a class="text-gray-400 hover:text-white mx-2" href="#">
-              <i class="fab fa-instagram"></i>
+            <a className="text-gray-400 hover:text-white mx-2" href="#">
+              <i className="fab fa-instagram"></i>
             </a>
-            <a class="text-gray-400 hover:text-white mx-2" href="#">
-              <i class="fab fa-linkedin-in"></i>
+            <a className="text-gray-400 hover:text-white mx-2" href="#">
+              <i className="fab fa-linkedin-in"></i>
             </a>
           </div>
         </div>
       </div>
+      \
 
       {/* Copyright */}
       <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm">

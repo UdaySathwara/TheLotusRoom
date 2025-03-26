@@ -31,11 +31,12 @@ import Login from "./Components/Atoms/Login";
 import ForgotPassword from "./Components/Atoms/ForgotPassword";
 import SignUp from "./Components/Atoms/SignUp";
 import YogaLibrary from './Components/Atoms/YogaLibrary';
+import ProgressTracker from './Components/Atoms/ProgressTracker';
 
 
 const AppContent = ({ user, handleLogout }) => {
   const location = useLocation(); 
-  const hideNavbarPaths = ["/detail-yoga-spice", "/detail-pink-mat", "/cart", "/detail-yoga-wheel", "/detail-blue-mat", "/detail-yoga-pillow", "/detail-yoga-blanket", "/detail-yoga-strap", "/detail-bumpy-foam-roller", "/checkout", "/login", "/forgot-password", "/sign-up", "/yoga-library"]; 
+  const hideNavbarPaths = ["/detail-yoga-spice", "/detail-pink-mat", "/cart", "/detail-yoga-wheel", "/detail-blue-mat", "/detail-yoga-pillow", "/detail-yoga-blanket", "/detail-yoga-strap", "/detail-bumpy-foam-roller", "/checkout", "/login", "/forgot-password", "/sign-up", "/yoga-library", "/Login" , "/progress-tracker"]; 
 
   return (
     <>
@@ -67,6 +68,7 @@ const AppContent = ({ user, handleLogout }) => {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/sign-up" element={<SignUp />} />    
         <Route path="/yoga-library" element={<YogaLibrary />} />
+        <Route path='/progress-tracker' element={<ProgressTracker />} />  
       </Routes>
       <Footer />
     </>
