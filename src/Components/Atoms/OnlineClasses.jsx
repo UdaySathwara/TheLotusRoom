@@ -32,6 +32,7 @@ const OnlineClasses = () => {
       day: "AnyDay",
       duration: "15 minutes",
       type: "recorded",
+      note : "For Everyone",
       link: "https://www.youtube.com/watch?v=149Iac5fmoE",
     },
     {
@@ -42,6 +43,7 @@ const OnlineClasses = () => {
       day: "AnyDay",
       duration: "30 minutes",
       type: "recorded",
+      note : "For Everyone",
       link: "https://youtu.be/U1cHGJYIwhA?si=fIm3b2bK31gOpd-8",
     },
     {
@@ -52,6 +54,7 @@ const OnlineClasses = () => {
       day: "AnyDay",
       duration: "30 minutes",
       type: "recorded",
+      note : "For Everyone",
       link: "https://youtu.be/5AXUBLOUL4E?si=nzW7U6dWwHTP1aqa",
     },
     {

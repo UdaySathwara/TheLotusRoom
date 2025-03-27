@@ -3,10 +3,9 @@ import Testimonials from "../Components/Atoms/Testimonials";
 import AboutFounder from "../Components/Atoms/AboutFounder";
 import BackToTop from "../Components/Atoms/BacktoTop";
 import Schedule from "../Components/Atoms/Schedule";
-import { Link , useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Home() {
-
   const courses = [
     {
       name: "Psycho Yoga Therapy Course",
@@ -228,7 +227,9 @@ function Home() {
                 </p>
                 <p className="flex justify-center items-center">
                   <strong>
-                    <span className="material-symbols-outlined px-2">payments</span>
+                    <span className="material-symbols-outlined px-2">
+                      payments
+                    </span>
                   </strong>
                   COURCE FEES: {course.fees}
                 </p>
@@ -254,7 +255,8 @@ function Home() {
         </div>
         <Link
           to="/courses"
-          className="bg-[#8e5d36] text-white py-2 px-4 rounded-full mt-10 flex justify-center items-center hover:text-[#8e5d36] hover:bg-white border-2 border-[#8e5d36] font-medium">
+          className="bg-[#8e5d36] text-white py-2 px-4 rounded-full mt-10 flex justify-center items-center hover:text-[#8e5d36] hover:bg-white border-2 border-[#8e5d36] font-medium"
+        >
           View All Courses
         </Link>
       </div>
@@ -286,7 +288,10 @@ function Home() {
             </div>
           ))}
         </div>
-        <button className="bg-[#8e5d36] text-white py-2 px-4 rounded-full mt-16 mb-8 flex justify-center items-center hover:text-[#8e5d36] hover:bg-white border-2 border-[#8e5d36] font-medium" onClick={() => navigate("/trainer")}>
+        <button
+          className="bg-[#8e5d36] text-white py-2 px-4 rounded-full mt-16 mb-8 flex justify-center items-center hover:text-[#8e5d36] hover:bg-white border-2 border-[#8e5d36] font-medium"
+          onClick={() => navigate("/trainer")}
+        >
           View All Trainers
         </button>
       </div>

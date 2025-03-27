@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import BackToTop from "./BacktoTop";
+import Firebase from "firebase/compat/app";
 import {
   LineChart,
   Line,
@@ -13,13 +14,15 @@ import {
 
 const currentUser = {
   id: "user123",
-  name: "Yoga User"
+  name: "Yoga User",
 };
 
-const savedData = JSON.parse(localStorage.getItem(`yogaData_${currentUser.id}`)) || {
+const savedData = JSON.parse(
+  localStorage.getItem(`yogaData_${currentUser.id}`)
+) || {
   activities: [],
   dailyGoal: 30,
-  goalSettingPhase: "setGoal"
+  goalSettingPhase: "setGoal",
 };
 
 const YogaProgressTracker = () => {
@@ -27,17 +30,24 @@ const YogaProgressTracker = () => {
   const [dailyMinutes, setDailyMinutes] = useState("");
   const [dailyGoal, setDailyGoal] = useState(savedData.dailyGoal);
   const [newGoal, setNewGoal] = useState(savedData.dailyGoal);
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split("T")[0]);
+  const [selectedDate, setSelectedDate] = useState(
+    new Date().toISOString().split("T")[0]
+  );
   const [yogaStyle, setYogaStyle] = useState("Hatha");
-  const [goalSettingPhase, setGoalSettingPhase] = useState(savedData.goalSettingPhase);
+  const [goalSettingPhase, setGoalSettingPhase] = useState(
+    savedData.goalSettingPhase
+  );
 
   useEffect(() => {
     const userData = {
       activities: weeklyActivity,
       dailyGoal: dailyGoal,
-      goalSettingPhase: goalSettingPhase
+      goalSettingPhase: goalSettingPhase,
     };
-    localStorage.setItem(`yogaData_${currentUser.id}`, JSON.stringify(userData));
+    localStorage.setItem(
+      `yogaData_${currentUser.id}`,
+      JSON.stringify(userData)
+    );
   }, [weeklyActivity, dailyGoal, goalSettingPhase]);
 
   const addDailyActivity = () => {
@@ -55,7 +65,7 @@ const YogaProgressTracker = () => {
           .slice(-7);
 
         if (updatedActivity.length === 7) {
-          setGoalSettingPhase('canChange');
+          setGoalSettingPhase("canChange");
         }
         return updatedActivity;
       });
@@ -69,26 +79,49 @@ const YogaProgressTracker = () => {
       setWeeklyActivity([]);
       setDailyGoal(30);
       setNewGoal(30);
-      setGoalSettingPhase('setGoal');
+      setGoalSettingPhase("setGoal");
     }
   };
 
   const setNewDailyGoal = () => {
-    if (goalSettingPhase === 'setGoal' || goalSettingPhase === 'canChange') {
+    if (goalSettingPhase === "setGoal" || goalSettingPhase === "canChange") {
       setDailyGoal(newGoal);
-      setGoalSettingPhase('locked');
+      setGoalSettingPhase("locked");
     }
   };
 
-  const lastSevenActivities = useMemo(() => weeklyActivity.slice(-7), [weeklyActivity]);
-  const weeklyProgress = useMemo(() => lastSevenActivities.reduce((acc, entry) => acc + entry.minutes, 0), [lastSevenActivities]);
-  const chartData = useMemo(() => lastSevenActivities.map(entry => ({ date: entry.date, minutes: entry.minutes })), [lastSevenActivities]);
+  const lastSevenActivities = useMemo(
+    () => weeklyActivity.slice(-7),
+    [weeklyActivity]
+  );
+  const weeklyProgress = useMemo(
+    () => lastSevenActivities.reduce((acc, entry) => acc + entry.minutes, 0),
+    [lastSevenActivities]
+  );
+  const chartData = useMemo(
+    () =>
+      lastSevenActivities.map((entry) => ({
+        date: entry.date,
+        minutes: entry.minutes,
+      })),
+    [lastSevenActivities]
+  );
 
   return (
     <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex flex-col items-center">
       <BackToTop />
-      <h2 className="text-3xl font-bold text-gray-900 text-center mb-6">Yoga Progress Tracker</h2>
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
+      <div className="flex items-center justify-between lg:pb-6 pb-6 md:pb-6 p-4">
+        <span
+          className="material-symbols-outlined text-xl cursor-pointer xl:hidden "
+          onClick={() => navigate(-1)}
+        >
+          arrow_back_ios
+        </span>
+        <h2 className="text-2xl font-semibold text-center flex-1 text-black">
+          Yoga Progress Tracker
+        </h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
         {/* Activity Log & Form */}
         <div>
           <div className="bg-white shadow-lg rounded-lg p-4 mb-6">
@@ -96,7 +129,7 @@ const YogaProgressTracker = () => {
               <label className="block text-lg font-semibold text-gray-700">
                 Set Daily Goal (minutes):
               </label>
-              {goalSettingPhase === 'locked' && (
+              {goalSettingPhase === "locked" && (
                 <span className="text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded">
                   Goal locked (7 entries logged)
                 </span>
@@ -108,17 +141,17 @@ const YogaProgressTracker = () => {
                 value={newGoal}
                 onChange={(e) => setNewGoal(parseInt(e.target.value))}
                 className={`flex-1 p-2 border rounded focus:ring-2 ${
-                  goalSettingPhase === 'locked'
+                  goalSettingPhase === "locked"
                     ? "border-gray-300 bg-gray-100 cursor-not-allowed"
                     : "border-gray-300 focus:ring-indigo-500"
                 }`}
-                disabled={goalSettingPhase === 'locked'}
+                disabled={goalSettingPhase === "locked"}
               />
               <button
                 onClick={setNewDailyGoal}
-                disabled={goalSettingPhase === 'locked'}
+                disabled={goalSettingPhase === "locked"}
                 className={`ml-2 px-4 py-2 rounded-lg transition-all ${
-                  goalSettingPhase === 'locked'
+                  goalSettingPhase === "locked"
                     ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                     : "bg-indigo-500 text-white hover:bg-indigo-600"
                 }`}
@@ -127,9 +160,9 @@ const YogaProgressTracker = () => {
               </button>
             </div>
             <div className="mt-2 text-sm text-gray-600">
-              {goalSettingPhase === 'setGoal'
+              {goalSettingPhase === "setGoal"
                 ? "Set your goal (will lock after 7 entries)"
-                : goalSettingPhase === 'locked'
+                : goalSettingPhase === "locked"
                 ? "Goal is locked. Log next 7 activities to reset."
                 : "You can now change your goal."}
             </div>
@@ -182,7 +215,7 @@ const YogaProgressTracker = () => {
               <h2 className="text-xl font-semibold text-gray-700">
                 Activity Log (Last 7)
               </h2>
-              <button 
+              <button
                 onClick={resetData}
                 className="text-sm bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-all"
               >
@@ -233,10 +266,10 @@ const YogaProgressTracker = () => {
                   <YAxis />
                   <Tooltip />
                   <Legend />
-                  <Line 
-                    type="monotone" 
-                    dataKey="minutes" 
-                    stroke="#6366F1" 
+                  <Line
+                    type="monotone"
+                    dataKey="minutes"
+                    stroke="#6366F1"
                     strokeWidth={2}
                     dot={{ r: 4 }}
                     activeDot={{ r: 6 }}
@@ -254,7 +287,10 @@ const YogaProgressTracker = () => {
               Weekly Progress
             </h2>
             <p className="text-lg font-medium">
-              Total: <span className="font-bold text-indigo-700">{weeklyProgress} mins</span>
+              Total:{" "}
+              <span className="font-bold text-indigo-700">
+                {weeklyProgress} mins
+              </span>
             </p>
             <div className="mt-4 p-3 bg-indigo-50 rounded-lg">
               <p className="font-semibold text-indigo-800">
@@ -263,13 +299,19 @@ const YogaProgressTracker = () => {
               {lastSevenActivities.length > 0 && (
                 <>
                   <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
-                    <div 
-                      className="bg-indigo-600 h-2.5 rounded-full" 
-                      style={{ width: `${Math.min(100, (weeklyProgress / (dailyGoal * 7)) * 100)}%` }}
+                    <div
+                      className="bg-indigo-600 h-2.5 rounded-full"
+                      style={{
+                        width: `${Math.min(
+                          100,
+                          (weeklyProgress / (dailyGoal * 7)) * 100
+                        )}%`,
+                      }}
                     ></div>
                   </div>
                   <p className="text-sm text-gray-600 mt-1">
-                    {Math.round((weeklyProgress / (dailyGoal * 7)) * 100)}% completed
+                    {Math.round((weeklyProgress / (dailyGoal * 7)) * 100)}%
+                    completed
                   </p>
                 </>
               )}

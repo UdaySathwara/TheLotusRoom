@@ -83,8 +83,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      \
-
       {/* Copyright */}
       <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm">
         © {new Date().getFullYear()} The Lotus Room. All Rights Reserved.

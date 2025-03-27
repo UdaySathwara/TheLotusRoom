@@ -23,7 +23,8 @@ const Checkout = () => {
     setTimeout(() => {
       setIsLoading(false);
       setIsOrderPlaced(true);
-    }, 3000); // Simulating a 3-second loading time
+      placeOrder(); // Ensure order is added to the context
+    }, 3000);
   };
 
   const handleCloseModal = () => {
@@ -51,6 +52,7 @@ const Checkout = () => {
             <h2 className="text-2xl font-semibold mb-2">Order Placed!</h2>
             <p className="text-gray-600 mb-4">
               Your order has been successfully placed.
+              <p className=""><a href="/my-orders" className="text-orange-500">View Order.</a></p>
             </p>
             <button
               onClick={handleCloseModal}

@@ -2,13 +2,27 @@ import React, { useState, useContext, useEffect } from "react";
 import { CartContext } from "../Atoms/CartContext";
 import { useNavigate } from "react-router-dom";
 import BackToTop from "./BacktoTop";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Cart = () => {
   const { cart, updateQuantity, removeFromCart } = useContext(CartContext);
   const navigate = useNavigate();
-
+  const auth = getAuth();
+  
   const [showModal, setShowModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [showLoginPrompt, setShowLoginPrompt] = useState(false);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsUserLoggedIn(true);
+      } else {
+        setIsUserLoggedIn(false);
+      }
+    });
+  }, [auth]);
 
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
   const totalPrice = cart.reduce(
@@ -33,6 +47,33 @@ const Cart = () => {
     setSelectedItem(null);
   };
 
+  if (!isUserLoggedIn) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-[#eddbcc] min-h-screen">
+        <div className="bg-white p-6 rounded-lg shadow-lg w-80">
+          <h2 className="text-lg font-semibold">You are not logged in</h2>
+          <p className="mt-2 text-gray-600">
+            Please log in to view your cart.
+          </p>
+          <div className="flex justify-end mt-4">
+            <button
+              className="mr-4 px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-200"
+              onClick={() => setShowLoginPrompt(false)}
+            >
+              Cancel
+            </button>
+            <button
+              className="px-4 py-2 text-white bg-orange-500 rounded-lg hover:bg-white hover:text-orange-500 border border-orange-500"
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="container mx-auto p-4 px-6 min-h-screen">
       <BackToTop />
@@ -46,25 +87,25 @@ const Cart = () => {
       </div>
 
       {cart.length === 0 ? (
-            <div className="flex items-center justify-center h-[500px] bg-white">
-            <div className="text-center">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/13539/13539700.png"
-                alt="Illustration of an empty shopping cart with stars around it"
-                className="mx-auto mb-4"
-                width="100"
-                height="100"
-              />
-              <h1 className="text-xl font-semibold text-gray-800">Your cart is empty</h1>
-              <p className="text-gray-500 mb-6">Looks like you haven't made your choice yet...</p>
-              <button
-                onClick={() => navigate("/shop")}
-                className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-50"
-              >
-                Start Shopping
-              </button>
-            </div>
+        <div className="flex items-center justify-center h-[500px] bg-white">
+          <div className="text-center">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/13539/13539700.png"
+              alt="Illustration of an empty shopping cart with stars around it"
+              className="mx-auto mb-4"
+              width="100"
+              height="100"
+            />
+            <h1 className="text-xl font-semibold text-gray-800">Your cart is empty</h1>
+            <p className="text-gray-500 mb-6">Looks like you haven't made your choice yet...</p>
+            <button
+              onClick={() => navigate("/shop")}
+              className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-50"
+            >
+              Start Shopping
+            </button>
           </div>
+        </div>
       ) : (
         <div className="overflow-x-auto w-full lg:px-10 px-4">
           <table className="hidden sm:table w-full border-collapse text-center">
