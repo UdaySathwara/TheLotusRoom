@@ -175,8 +175,7 @@ const Navbar = ({ user, handleLogout }) => {
             ) : (
               <Link
                 to="/login"
-                className="bg-transparent border-2 text-white px-8 py-2 shadow-md hover:text-green-500 hover:border-green-500 hover:bg-gray-200/10 transition font-medium"
-              >
+                className="bg-transparent border-2 text-white px-6 py-2 shadow-md hover:text-green-500 hover:border-green-500 hover:bg-gray-200/10 transition font-medium">
                 Login
               </Link>
             )}
@@ -186,6 +185,13 @@ const Navbar = ({ user, handleLogout }) => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="bg-black flex flex-col items-center space-y-4 p-6 w-full absolute left-0 top-16 z-50">
+            <Link
+              to="/"
+              className={`text-white hover:text-gray-300 ${isActive("/about")}`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
             <Link
               to="/about"
               className={`text-white hover:text-gray-300 ${isActive("/about")}`}
@@ -219,6 +225,22 @@ const Navbar = ({ user, handleLogout }) => {
               onClick={() => setIsMenuOpen(false)}
             >
               Courses
+            </Link>
+            <Link
+              to="/shop"
+              className={`text-white hover:text-gray-300 ${isActive("/shop")}`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Shop
+            </Link>
+            <Link
+              to="/contact"
+              className={`text-white hover:text-gray-300 ${isActive(
+                "/contact"
+              )}`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
             </Link>
           </div>
         )}

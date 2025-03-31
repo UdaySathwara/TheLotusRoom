@@ -5,6 +5,9 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import Home from "./Pages/Home";
 import Navbar from "./Components/Atoms/Navbar";
 import Footer from "./Components/Atoms/Footer";
+import Services from "./Components/Atoms/Services";
+import HomeCourses from "./Components/Atoms/HomeCourses";
+import HomeTrainer from "./Components/Atoms/HomeTrainer";
 import Testimonials from "./Components/Atoms/Testimonials";
 import About from "./Pages/About";
 import AboutFounder from "./Components/Atoms/AboutFounder";
@@ -33,17 +36,21 @@ import SignUp from "./Components/Atoms/SignUp";
 import YogaLibrary from './Components/Atoms/YogaLibrary';
 import ProgressTracker from './Components/Atoms/ProgressTracker';
 import MyOrders from './Components/Atoms/MyOrders';
-
+import TermsandCodition from './Components/Atoms/TermsandCodition';
+import PrivacyPolicy from "./Components/Atoms/PrivacyPolicy";
 
 const AppContent = ({ user, handleLogout }) => {
   const location = useLocation(); 
-  const hideNavbarPaths = ["/detail-yoga-spice", "/detail-pink-mat", "/cart", "/detail-yoga-wheel", "/detail-blue-mat", "/detail-yoga-pillow", "/detail-yoga-blanket", "/detail-yoga-strap", "/detail-bumpy-foam-roller", "/checkout", "/login", "/forgot-password", "/sign-up", "/yoga-library", "/Login" , "/progress-tracker" , "/my-orders"]; 
+  const hideNavbarPaths = ["/detail-yoga-spice", "/detail-pink-mat", "/cart", "/detail-yoga-wheel", "/detail-blue-mat", "/detail-yoga-pillow", "/detail-yoga-blanket", "/detail-yoga-strap", "/detail-bumpy-foam-roller", "/checkout", "/login", "/forgot-password", "/sign-up", "/yoga-library", "/Login" , "/progress-tracker" , "/my-orders" , "/privacy-policy" ,"/terms-and-conditions"]; 
 
   return (
     <>
       {!hideNavbarPaths.includes(location.pathname) && <Navbar user={user} handleLogout={handleLogout} />}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/home-courses" element={<HomeCourses />} />
+        <Route path="/home-trainer" element={<HomeTrainer />} />
         <Route path="*" element={<BackToTop />} />
         <Route path="/about" element={<About />} />
         <Route path="/about-founder" element={<AboutFounder />} />
@@ -71,6 +78,8 @@ const AppContent = ({ user, handleLogout }) => {
         <Route path="/yoga-library" element={<YogaLibrary />} />
         <Route path='/progress-tracker' element={<ProgressTracker />} />  
         <Route path="/my-orders" element={<MyOrders />} />
+        <Route path="/terms-and-conditions" element={<TermsandCodition />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
     </>

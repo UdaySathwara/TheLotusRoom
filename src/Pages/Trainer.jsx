@@ -85,7 +85,7 @@ function Trainer(props) {
       experience: "6+ months",
       description: "ASHTANGA AND HATHA YOGA",
       image:
-        "https://plus.unsplash.com/premium_photo-1682092603230-1ce7cf8ca451?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5kaWFuJTIwbWFufGVufDB8fDB8fHww",
+        "https://img.freepik.com/free-photo/front-view-man-meditating-outdoors_23-2148988371.jpg",
     },
     {
       name: "Laxmi Adhikari",
@@ -129,7 +129,7 @@ function Trainer(props) {
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"
         style={{
           backgroundImage:
-            "url('https://www.isfdcourses.com/wp-content/uploads/2023/03/500-yoga-teacher-training-course.jpg')",
+            "url('https://images.pexels.com/photos/6339390/pexels-photo-6339390.jpeg')",
         }}
       >
         <div className="absolute inset-0 bg-black/55"></div>

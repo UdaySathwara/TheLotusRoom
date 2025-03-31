@@ -14,7 +14,7 @@ function AboutFounder(props) {
           {/* User Details */}
           <div className="flex flex-col items-center md:items-start w-full md:w-1/3 relative">
             <img
-              src="https://content.jdmagicbox.com/v2/comp/mumbai/v8/022pxx22.xx22.170729162821.r4v8/catalogue/vinay-kumar-santacruz-east-mumbai-dietitians-pg53gjdphc.jpg"
+              src="https://image1.masterfile.com/getImage/NjMwLTAzNDc5Nzk2ZW4uMDAwMDAwMDA=AK-ssl/630-03479796en_Masterfile.jpg"
               alt="Founder"
               className="rounded-xl object-cover h-[450px]"
             />
@@ -39,7 +39,7 @@ function AboutFounder(props) {
             </h3>
             <p className="text-gray-700 leading-relaxed">
               <strong>Prakash Acharya</strong> is a Health Coach and Psycho-Yoga
-              Therapist, as well as the Founder & CEO of this Studio. He holds a
+              Therapist, as well as the Founder & CEO of The Lotus Room Studio. He holds a
               B.Sc in Yoga & Psychology, an MSc in Yogic Science, and is
               currently pursuing a PhD in Yoga & Mental Health. A National and
               State Yoga Champion, he has over 12 years of yoga practice
@@ -47,8 +47,8 @@ function AboutFounder(props) {
             </p>
             <br />
             <p className="text-gray-700 leading-relaxed">
-              In 2018, he started his own company, Yoga Fitness Private Limited.
-              He also mentors other yoga studios, with many currently operating
+              In 2018, he started his own company, The Lotus Room.
+              He also mentors other Yoga Studios, with many currently operating
               under his guidance.
             </p>
             <br />

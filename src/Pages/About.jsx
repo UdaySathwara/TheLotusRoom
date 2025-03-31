@@ -5,16 +5,39 @@ import Testimonials from "../Components/Atoms/Testimonials";
 import BackToTop from "../Components/Atoms/BacktoTop";
 
 function About(props) {
+
+  const statsData = [
+    {
+      icon: "https://cdn-icons-png.flaticon.com/512/11448/11448752.png",
+      value: "80",
+      label: "Yoga Batches",
+    },
+    {
+      icon: "https://cdn-icons-png.flaticon.com/128/3091/3091443.png",
+      value: "1000",
+      label: "Yoga Conducted",
+    },
+    {
+      icon: "https://cdn-icons-png.flaticon.com/512/6912/6912463.png",
+      value: "12",
+      label: "Years of Experience",
+    },
+    {
+      icon: "https://cdn-icons-png.flaticon.com/512/554/554826.png",
+      value: "100,000",
+      label: "Happy Customers",
+    },
+  ];
   return (
     <>
 
       <BackToTop />
 
       <section
-        className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"
+        className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-no-repeat relative p-6"
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/4325460/pexels-photo-4325460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+            "url('https://goodstretch.uk/wp-content/uploads/2021/04/why-is-stretching-so-important.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
@@ -38,7 +61,7 @@ function About(props) {
         transition={{ duration: 1 }}
         className="flex flex-col items-center justify-center bg-gray-50 text-center py-12 sm:py-20 px-4 sm:px-16"
       >
-        <span className="text-4xl font-semibold text-orange-500 p-6">
+        <span className="text-4xl font-semibold text-orange-500 p-6 ">
           Welcome To Our Yoga Studio
         </span>
         <span className="text-xl p-6 text-justify">
@@ -95,72 +118,29 @@ function About(props) {
       </motion.div>
 
 
-      <div className="bg-[#8e5d37] flex justify-around items-center h-[300px] p-20"
-      >
-        <motion.div 
-         initial={{ opacity: 0, y: 50 }}
-         whileInView={{ opacity: 1, y: 0 }}
-         transition={{ duration: 0.5 }}
-         className="flex justify-center items-center gap-4">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/11448/11448752.png"
-            alt=""
-            className="bg-white p-2 size-20 rounded-full"
-          />
-          <div className="flex text-white text-xl font-bold flex-col">
-            <span className="">80</span>
-            <span className="">Yoga Batches</span>
-          </div>
-        </motion.div>
-
-        <motion.div 
-         initial={{ opacity: 0, y: 50 }}
-         whileInView={{ opacity: 1, y: 0 }}
-         transition={{ duration: 1 }}
-        className="flex justify-center items-center gap-4">
-          <img
-            src="https://cdn-icons-png.flaticon.com/128/3091/3091443.png"
-            alt=""
-            className="bg-white object-cover p-2 rounded-full size-20"
-          />
-          <div className="flex text-white text-xl font-bold flex-col">
-            <span className="">1000</span>
-            <span className="">Yoga Conducted</span>
-          </div>
-        </motion.div>
-
-        <motion.div 
-         initial={{ opacity: 0, y: 50 }}
-         whileInView={{ opacity: 1, y: 0 }}
-         transition={{ duration: 1 }}
-        className="flex justify-center items-center gap-4">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/6912/6912463.png"
-            alt=""
-            className="bg-white p-2 rounded-full size-20"
-          />
-          <div className="flex text-white text-xl font-bold flex-col">
-            <span className="">12</span>
-            <span className="">Years of Experience</span>
-          </div>
-        </motion.div>
-
-        <motion.div 
-         initial={{ opacity: 0, y: 50 }}
-         whileInView={{ opacity: 1, y: 0 }}
-         transition={{ duration: 1.5 }}
-        className="flex justify-center items-center gap-4">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/1769/1769041.png"
-            alt=""
-            className="bg-white p-2 rounded-full size-20"
-          />
-          <div className="flex text-white text-xl font-bold flex-col">
-            <span className="">100,000</span>
-            <span className="">Happy Customers</span>
-          </div>
-        </motion.div>
+      <div className="bg-[#8e5d37] py-12 flex items-center justify-center lg:px-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:place-items-center lg:grid-cols-4 gap-8 xl:gap-12 place-items-start">
+        {statsData.map((stat, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 + index * 0.3 }}
+            className="flex items-center gap-4"
+          >
+            <img
+              src={stat.icon}
+              alt=""
+              className="bg-white p-2 size-20 rounded-full"
+            />
+            <div className="text-white text-xl font-bold flex flex-col">
+              <span>{stat.value}</span>
+              <span>{stat.label}</span>
+            </div>
+          </motion.div>
+        ))}
       </div>
+    </div>
 
       <Testimonials />
     </>

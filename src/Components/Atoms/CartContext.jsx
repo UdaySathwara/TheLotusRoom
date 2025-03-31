@@ -3,26 +3,26 @@ import React, { createContext, useState, useEffect } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  // Load cart from sessionStorage
+  // Load cart from localStorage
   const [cart, setCart] = useState(() => {
-    const savedCart = sessionStorage.getItem("cart");
+    const savedCart = localStorage.getItem("cart");
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
-  // Load orders from sessionStorage
+  // Load orders from localStorage
   const [orders, setOrders] = useState(() => {
-    const savedOrders = sessionStorage.getItem("orders");
+    const savedOrders = localStorage.getItem("orders");
     return savedOrders ? JSON.parse(savedOrders) : [];
   });
 
-  // Sync cart with sessionStorage whenever it changes
+  // Sync cart with localStorage whenever it changes
   useEffect(() => {
-    sessionStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // Sync orders with sessionStorage whenever it changes
+  // Sync orders with localStorage whenever it changes
   useEffect(() => {
-    sessionStorage.setItem("orders", JSON.stringify(orders));
+    localStorage.setItem("orders", JSON.stringify(orders));
   }, [orders]);
 
   // Add item to cart or increase quantity if already exists
@@ -57,7 +57,7 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = (id) => {
     setCart((prevCart) => {
       const updatedCart = prevCart.filter((item) => item.id !== id);
-      sessionStorage.setItem("cart", JSON.stringify(updatedCart));
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
       return updatedCart;
     });
   };
@@ -76,18 +76,18 @@ export const CartProvider = ({ children }) => {
         name: item.name,
         quantity: item.quantity,
         price: item.price,
-        image: item.image || "https://via.placeholder.com/100", // Ensure image is stored
+        image: item.image || "https://via.placeholder.com/100",
       })),
     };
 
     setOrders((prevOrders) => {
       const updatedOrders = [...prevOrders, newOrder];
-      sessionStorage.setItem("orders", JSON.stringify(updatedOrders));
+      localStorage.setItem("orders", JSON.stringify(updatedOrders));
       return updatedOrders;
     });
 
     setCart([]);
-    sessionStorage.removeItem("cart");
+    localStorage.removeItem("cart");
   };
 
   return (

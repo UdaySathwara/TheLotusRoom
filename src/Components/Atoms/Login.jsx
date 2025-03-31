@@ -65,7 +65,7 @@ const LoginPage = () => {
 
         {/* Right Section */}
         <div className="w-full md:w-1/2 flex flex-col items-center justify-center p-6 text-center">
-          <h1 className="text-orange-500 font-medium text-2xl  md:text-2xl mb-4 ">
+          <h1 className="text-orange-500 font-medium text-2xl  md:text-2xl mb-6 ">
             The Lotus Room
           </h1>
           {user ? (
@@ -81,7 +81,7 @@ const LoginPage = () => {
               <h2 className="text-xl font-semibold">{user.displayName}</h2>
               <p className="text-gray-600">{user.email}</p>
               <button
-                className="mt-4 bg-red-500 hover:bg-white text-white hover:text-red-500 border border-red-500 px-5 py-2 rounded-lg transition duration-300"
+                className="mt-4 bg-red-500 hover:bg-white text-white hover:text-red-500 border border-red-500 px-5 py-2  transition duration-300"
                 onClick={handleLogout}
               >
                 Logout
@@ -91,8 +91,7 @@ const LoginPage = () => {
             <button
               type="button"
               onClick={signinWithGoogle}
-              className="bg-white border border-orange-300 hover:bg-orange-100 text-black/70 font-medium py-2 px-6 rounded-lg w-full flex items-center justify-center transition duration-300"
-            >
+              className="bg-white border border-orange-300 hover:bg-orange-100 text-black/70 font-medium py-2 px-6 rounded-lg w-full flex items-center justify-center transition duration-300">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
                 alt="Google Logo"

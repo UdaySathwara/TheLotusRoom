@@ -72,10 +72,10 @@ function Contact() {
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/7596956/pexels-photo-7596956.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+            "url('https://images.unsplash.com/photo-1637157216470-d92cd2edb2e8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
         }}
       >
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 max-w-3xl px-4">
           <h2 className="text-4xl md:text-5xl font-medium text-white">
             Contact Us
@@ -116,7 +116,7 @@ function Contact() {
       </div>
 
       {/* Contact Form */}
-      <div className="bg-[#FDF2E7]  lg:px-10 p-12 flex flex-col lg:flex-row">
+      <div className="bg-[#FDF2E7]  lg:px-10 p-4 md:px-10 flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/2 p-4">
           <h1 className="text-3xl font-bold mb-6 text-[#955721]">Message Us</h1>
           <form className="space-y-4" onSubmit={handleSubmit}>
