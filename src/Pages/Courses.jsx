@@ -266,7 +266,7 @@ function Courses() {
                 </p>
                 <p className="flex justify-center items-center">
                   <strong>
-                    <span class="material-symbols-outlined px-2">payments</span>
+                    <span className="material-symbols-outlined px-2">payments</span>
                   </strong>
                   COURCE FEES: {course.fees}
                 </p>

@@ -12,7 +12,7 @@ import Testimonials from "./Components/Atoms/Testimonials";
 import About from "./Pages/About";
 import AboutFounder from "./Components/Atoms/AboutFounder";
 import Trainer from "./Pages/Trainer";
-import BackToTop from "./Components/Atoms/BacktoTop";
+import BackToTop from "./BackToTop";
 import Schedule from "./Components/Atoms/Schedule";
 import Classes from "./Pages/Classes";
 import Courses from "./Pages/Courses";
