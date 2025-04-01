@@ -7,13 +7,13 @@ function Classes() {
     <div>
 
       <section
-        className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"
+        className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-bottom bg-no-repeat relative p-6"
         style={{
           backgroundImage:
-            "url('https://ecom-static-site-prod.s3.ap-south-1.amazonaws.com/SEO-New-Images/Courses/yoga-asana-regular-classes-for-men.webp')",
+            "url('https://cdn.decorpad.com/photos/2012/10/30/4f46401b2bf3.jpeg')",
         }}
       >
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-3xl px-4">

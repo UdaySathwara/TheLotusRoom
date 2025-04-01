@@ -32,7 +32,7 @@ function About(props) {
 
 
       <section
-        className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-no-repeat relative p-6"
+        className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"
         style={{
           backgroundImage:
             "url('https://goodstretch.uk/wp-content/uploads/2021/04/why-is-stretching-so-important.jpg')",

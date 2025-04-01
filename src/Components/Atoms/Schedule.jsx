@@ -29,8 +29,8 @@ function Schedule() {
       <div className="space-y-2 p-6 text-center max-w-[600px] mx-auto mb-5 relative">
         <h1 className="uppercase font-semibold text-orange-600">GET TO KNOW</h1>
         <p className="font-semibold text-4xl pb-2">OUR CLASSES</p>
-        <span className="text-center m-4">
-            We offer a Time Table for people who want to learn Yoga Daily on Our </span> <span className="text-center px-1 font-semibold text-xl text-[#8e5d36]">Science City </span>Branch.
+        <p className="text-center m-4">
+            We offer a Time Table for people who want to learn Yoga Daily on Our </p><span className="text-center font-semibold text-xl text-[#8e5d36]">Science City </span>Branch.
       </div>
       <div className="max-w-5xl w-full mx-auto p-4">
         <div className="flex flex-wrap justify-center gap-4 mb-6">

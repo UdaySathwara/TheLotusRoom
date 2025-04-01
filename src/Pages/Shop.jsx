@@ -78,13 +78,13 @@ const ProductGrid = () => {
     <div>
 
       <section
-        className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-bottom bg-no-repeat relative p-6"
+        className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"
         style={{
           backgroundImage:
-            "url('https://files.oaiusercontent.com/file-Akw8V9M5TLtPczuf8tCHfy?se=2025-03-25T13%3A09%3A14Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Dd7db29e1-51fc-4898-81fa-b3675f05b747.webp&sig=SSEWnV/DtfAT8p/Ms1etoUQEwLItWdJIgaC0I1E8xQU%3D')",
+            "url('https://cdn.shopify.com/s/files/1/0594/0461/5839/files/Noveme_02_PP-min_aad43391-36f0-4c9a-9bf5-8af67f6ad23c.jpg?v=1672763409')",
         }}
       >
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-3xl px-4">

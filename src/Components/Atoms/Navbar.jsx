@@ -107,7 +107,7 @@ const Navbar = ({ user, handleLogout }) => {
           </div>
 
           {/* Profile/Login Section */}
-          <div className="absolute right-0 pr-2 flex items-center">
+          <div className="absolute right-0 flex items-center">
             {user ? (
               <div className="relative">
                 {/* Profile Image Dropdown */}
