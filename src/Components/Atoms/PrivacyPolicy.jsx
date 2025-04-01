@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="max-w-full min-h-screen mx-auto p-4 lg:px-12 bg-white shadow-lg rounded-lg pb-12">
-      <div className="flex items-center lg:justify-center justify-between lg:pb-16 pb-6 md:pb-6">
+      <div className="flex items-center lg:justify-center justify-between lg:pb-16 pb-6 md:pb-6 py-4 px-2">
         <span
           className="material-symbols-outlined text-xl cursor-pointer xl:hidden"
           onClick={() => navigate(-1)}
