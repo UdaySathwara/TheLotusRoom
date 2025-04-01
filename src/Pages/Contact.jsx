@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import BackToTop from "../Components/Atoms/BacktoTop";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -67,7 +66,6 @@ function Contact() {
 
   return (
     <div>
-      <BackToTop />
       <section
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"
         style={{

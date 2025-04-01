@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import BackToTop from "../Components/Atoms/BacktoTop";
 import { useEffect } from "react";
 
 function Trainer(props) {
@@ -122,8 +121,6 @@ function Trainer(props) {
     
   return (
     <>
-
-      <BackToTop />
 
       <section
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"

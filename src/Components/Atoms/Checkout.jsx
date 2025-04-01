@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import BackToTop from "./BacktoTop";
 import { CartContext } from "./CartContext";
 
 const Checkout = () => {
@@ -35,7 +34,6 @@ const Checkout = () => {
 
   return (
     <div className="container mx-auto p-4 lg:px-8 mb-8">
-      <BackToTop />
       <div className="flex items-center justify-between lg:pb-12 pb-8 pt-4">
         <span
           className="material-symbols-outlined text-xl cursor-pointer xl:hidden"

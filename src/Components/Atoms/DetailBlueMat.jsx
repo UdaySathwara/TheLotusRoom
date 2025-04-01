@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import BackToTop from "./BacktoTop";
 import { CartContext } from "./CartContext";
 
 const DetailBlueMat = () => {
@@ -66,7 +65,6 @@ const DetailBlueMat = () => {
 
   return (
     <div className="bg-grey-50 m-6 pb-10">
-      <BackToTop />
       <div className="flex items-center justify-between px-10">
         <span
           className="material-symbols-outlined text-xl cursor-pointer xl:hidden"

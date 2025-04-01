@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import AboutFounder from "../Components/Atoms/AboutFounder";
 import Testimonials from "../Components/Atoms/Testimonials";
-import BackToTop from "../Components/Atoms/BacktoTop";
 
 function About(props) {
 
@@ -31,7 +30,6 @@ function About(props) {
   return (
     <>
 
-      <BackToTop />
 
       <section
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-no-repeat relative p-6"

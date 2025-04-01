@@ -1,5 +1,4 @@
 import React from "react";
-import BackToTop from "./BacktoTop";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -73,7 +72,6 @@ function HomeCourses() {
 
   return (
     <div>
-      <BackToTop />
 
       {/* Courses */}
       <div className="flex flex-col justify-center items-center pb-10 min-h-screen bg-gray-50 p-6">

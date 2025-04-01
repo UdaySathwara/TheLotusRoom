@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import BackToTop from "./BacktoTop";
 import { useNavigate } from "react-router-dom";
 
 const yogaPoses = [
@@ -178,7 +177,6 @@ const YogaPoseLibrary = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#EDDBCC] text-black pb-12 p-4 ">
-      <BackToTop />
       <div className="flex items-center justify-between lg:pb-6 pb-6 md:pb-6 p-4">
         <span
           className="material-symbols-outlined text-xl cursor-pointer xl:hidden "

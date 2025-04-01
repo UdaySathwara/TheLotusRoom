@@ -1,6 +1,5 @@
 import React, { useState , useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import BackToTop from "../Components/Atoms/BacktoTop";
 import { useEffect } from "react";
 import { CartContext } from '../Components/Atoms/CartContext';
 
@@ -77,7 +76,6 @@ const ProductGrid = () => {
 
   return (
     <div>
-      <BackToTop />
 
       <section
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-bottom bg-no-repeat relative p-6"

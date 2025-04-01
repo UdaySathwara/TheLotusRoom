@@ -30,8 +30,6 @@ import DetailYogaStrap from "./Components/Atoms/DetailYogaStrap";
 import DetailBumpyFoamRoller from "./Components/Atoms/DetailBumpyFoamRoller";
 import Checkout from "./Components/Atoms/Checkout";
 import Login from "./Components/Atoms/Login";
-import ForgotPassword from "./Components/Atoms/ForgotPassword";
-import SignUp from "./Components/Atoms/SignUp";
 import YogaLibrary from './Components/Atoms/YogaLibrary';
 import ProgressTracker from './Components/Atoms/ProgressTracker';
 import MyOrders from './Components/Atoms/MyOrders';
@@ -70,9 +68,7 @@ const AppContent = ({ user, handleLogout }) => {
         <Route path="/detail-bumpy-foam-roller" element={<DetailBumpyFoamRoller />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/sign-up" element={<SignUp />} />    
+        <Route path="/login" element={<Login />} />    
         <Route path="/yoga-library" element={<YogaLibrary />} />
         <Route path='/progress-tracker' element={<ProgressTracker />} />  
         <Route path="/my-orders" element={<MyOrders />} />

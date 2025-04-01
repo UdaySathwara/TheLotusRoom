@@ -1,12 +1,10 @@
 import React from "react";
 import Schedule from "../Components/Atoms/Schedule";
-import BackToTop from "../Components/Atoms/BacktoTop";
 import OnlineClasses from "../Components/Atoms/OnlineClasses";
 
 function Classes() {
   return (
     <div>
-        <BackToTop />
 
       <section
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"

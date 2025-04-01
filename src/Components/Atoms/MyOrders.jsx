@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
-import BackToTop from "./BacktoTop";
 import { useNavigate } from "react-router-dom";
 
 const MyOrders = () => {
@@ -20,7 +19,6 @@ const MyOrders = () => {
 
   return (
     <div className="h-screen mx-auto p-4 lg:px-8 mb-8">
-      <BackToTop />
       <div className="flex items-center lg:justify-center justify-between lg:pb-16 pb-6 md:pb-6 p-4">
         <span
           className="material-symbols-outlined text-xl cursor-pointer xl:hidden"

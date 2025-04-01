@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useMemo } from "react";
-import BackToTop from "./BacktoTop";
 import { Link, useNavigate } from "react-router-dom";
 import Firebase from "firebase/compat/app";
 import {
@@ -113,7 +112,6 @@ const YogaProgressTracker = () => {
   return (
     <>
       <div className="p-4 pb-12 bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center min-h-screen mx-auto ">
-        <BackToTop />
         <div className="flex items-center lg:justify-center justify-between lg:pb-16 pb-6 md:pb-6 p-4">
           <span
             className="material-symbols-outlined text-xl cursor-pointer xl:hidden fixed left-8"

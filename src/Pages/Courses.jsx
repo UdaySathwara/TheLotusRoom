@@ -1,5 +1,4 @@
 import React from "react";
-import BackToTop from "../Components/Atoms/BacktoTop";
 import { useEffect, useState } from "react";
 
 function Courses() {
@@ -146,7 +145,6 @@ function Courses() {
 
   return (
     <div>
-      <BackToTop />
 
       <section
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-no-repeat relative p-6"

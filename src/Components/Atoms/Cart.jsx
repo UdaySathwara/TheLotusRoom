@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { CartContext } from "../Atoms/CartContext";
 import { useNavigate } from "react-router-dom";
-import BackToTop from "./BacktoTop";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Cart = () => {
@@ -76,7 +75,6 @@ const Cart = () => {
 
   return (
     <div className="container mx-auto p-4 px-6 min-h-screen">
-      <BackToTop />
       <div className="flex items-center lg:justify-center justify-between lg:pb-16 pb-6 md:pb-6 p-4">
         <span
           className="material-symbols-outlined text-xl cursor-pointer xl:hidden"
