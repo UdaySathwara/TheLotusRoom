@@ -12,7 +12,6 @@ import Testimonials from "./Components/Atoms/Testimonials";
 import About from "./Pages/About";
 import AboutFounder from "./Components/Atoms/AboutFounder";
 import Trainer from "./Pages/Trainer";
-import BackToTop from "./Components/Atoms/BacktoTop";
 import Schedule from "./Components/Atoms/Schedule";
 import Classes from "./Pages/Classes";
 import Courses from "./Pages/Courses";
@@ -51,7 +50,6 @@ const AppContent = ({ user, handleLogout }) => {
         <Route path="/services" element={<Services />} />
         <Route path="/home-courses" element={<HomeCourses />} />
         <Route path="/home-trainer" element={<HomeTrainer />} />
-        <Route path="*" element={<BackToTop />} />
         <Route path="/about" element={<About />} />
         <Route path="/about-founder" element={<AboutFounder />} />
         <Route path="/testimonial" element={<Testimonials />} />
