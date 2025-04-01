@@ -65,7 +65,7 @@ const DetailPinkMat = () => {
 
   return (
     <div className="container mx-auto bg-grey-50 m-6 pb-10">
-      <div className="flex items-center justify-between px-10">
+      <div className="flex items-center justify-between px-4">
         <span
           className="material-symbols-outlined text-xl cursor-pointer xl:hidden"
           onClick={() => navigate(-1)}

@@ -74,7 +74,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="container mx-auto p-4 px-6 min-h-screen">
+    <div className="container mx-auto p-4  min-h-screen">
       <div className="flex items-center lg:justify-center justify-between lg:pb-16 pb-6 md:pb-6 p-4">
         <span
           className="material-symbols-outlined text-xl cursor-pointer xl:hidden"
