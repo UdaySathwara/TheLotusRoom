@@ -4,7 +4,6 @@ import AboutFounder from "../Components/Atoms/AboutFounder";
 import Testimonials from "../Components/Atoms/Testimonials";
 
 function About(props) {
-
   const statsData = [
     {
       icon: "https://cdn-icons-png.flaticon.com/512/11448/11448752.png",
@@ -29,8 +28,6 @@ function About(props) {
   ];
   return (
     <>
-
-
       <section
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-center bg-no-repeat relative p-6"
         style={{
@@ -53,17 +50,13 @@ function About(props) {
 
       <AboutFounder />
 
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="flex flex-col items-center justify-center bg-gray-50 text-center py-12 sm:py-20 px-4 sm:px-16"
-      >
+      <div className="flex flex-col items-center justify-center bg-gray-50 text-center py-12 sm:py-20 px-4 sm:px-16">
         <span className="text-4xl font-semibold text-orange-500 p-6 ">
           Welcome To Our Yoga Studio
         </span>
         <span className="text-xl p-6 text-justify">
-          Gyan means know and Ish means self i.e. know yourself. <b>Prakash Acharaya,</b> the founder of Yoga Studio. Our company was
+          Gyan means know and Ish means self i.e. know yourself.{" "}
+          <b>Prakash Acharaya,</b> the founder of Yoga Studio. Our company was
           registered incorporation as company in December 2018. There ard
           branches situated in Ahmedabad, Gujarat. The company has collaborated
           with many other companies and has given affiliations to many other
@@ -113,32 +106,31 @@ function About(props) {
             as well as in foreign countries.
           </li>
         </span>
-      </motion.div>
-
+      </div>
 
       <div className="bg-[#8e5d37] py-12 flex items-center justify-center lg:px-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:place-items-center lg:grid-cols-4 gap-8 xl:gap-12 place-items-start">
-        {statsData.map((stat, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 + index * 0.3 }}
-            className="flex items-center gap-4"
-          >
-            <img
-              src={stat.icon}
-              alt=""
-              className="bg-white p-2 size-20 rounded-full"
-            />
-            <div className="text-white text-xl font-bold flex flex-col">
-              <span>{stat.value}</span>
-              <span>{stat.label}</span>
-            </div>
-          </motion.div>
-        ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:place-items-center lg:grid-cols-4 gap-8 xl:gap-12 place-items-start">
+          {statsData.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 + index * 0.3 }}
+              className="flex items-center gap-4"
+            >
+              <img
+                src={stat.icon}
+                alt=""
+                className="bg-white p-2 size-20 rounded-full"
+              />
+              <div className="text-white text-xl font-bold flex flex-col">
+                <span>{stat.value}</span>
+                <span>{stat.label}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
 
       <Testimonials />
     </>

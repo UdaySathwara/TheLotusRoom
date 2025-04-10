@@ -35,6 +35,7 @@ import ProgressTracker from './Components/Atoms/ProgressTracker';
 import MyOrders from './Components/Atoms/MyOrders';
 import TermsandCodition from './Components/Atoms/TermsandCodition';
 import PrivacyPolicy from "./Components/Atoms/PrivacyPolicy";
+import BacktoTop from "./Components/Atoms/Backtotop";
 
 const AppContent = ({ user, handleLogout }) => {
   const location = useLocation(); 
@@ -98,6 +99,7 @@ function App() {
   return (
     <CartProvider>
       <BrowserRouter>
+        <BacktoTop />
         <AppContent user={user} handleLogout={handleLogout} />
       </BrowserRouter>
     </CartProvider>
