@@ -37,40 +37,16 @@ const Navbar = ({ user, handleLogout }) => {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d={
-                  isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4  6h16M4 6h16M4 12h16M4 12h16M4 18h16M4 18h16"
+                  isMenuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4  6h16M4 6h16M4 12h16M4 12h16M4 18h16M4 18h16"
                 }
               ></path>
             </svg>
           </button>
 
-          {/* Left Navigation Links */}
-          <div className="hidden md:flex justify-center items-center space-x-6 md:space-x-5">
-            <Link
-              to="/about"
-              className={`text-white hover:text-gray-300 ${isActive("/about")}`}
-            >
-              About
-            </Link>
-            <Link
-              to="/trainer"
-              className={`text-white hover:text-gray-300 ${isActive(
-                "/trainer"
-              )}`}
-            >
-              Trainer
-            </Link>
-            <Link
-              to="/classes"
-              className={`text-white hover:text-gray-300 ${isActive(
-                "/classes"
-              )}`}
-            >
-              Classes
-            </Link>
-          </div>
-
-          {/* Logo in Center */}
-          <div className="hidden md:flex text-center bg-white p-2 rounded-full justify-center items-center">
+          {/* Logo */}
+          <div className="hidden md:flex text-center bg-white p-2 rounded-full justify-between items-center absolute  left-4 lg:left-4 ">
             <Link to="/" className="text-white text-2xl font-bold">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/10077/10077968.png"
@@ -79,12 +55,45 @@ const Navbar = ({ user, handleLogout }) => {
               />
             </Link>
           </div>
+          {/* Left Navigation Links */}
+          <div className="hidden md:flex justify-center items-center space-x-6 md:space-x-5">
+            <Link
+              to="/"
+              className={`text-white hover:text-gray-300 text-sm lg:text-base ${isActive("/")}`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className={`text-white hover:text-gray-300 text-sm lg:text-base ${isActive("/about")}`}
+            >
+              About
+            </Link>
+            <Link
+              to="/trainer"
+              className={`text-white hover:text-gray-300 text-sm lg:text-base ${isActive(
+                "/trainer"
+              )}`}
+            >
+              Trainer
+            </Link>
+            <Link
+              to="/classes"
+              className={`text-white hover:text-gray-300 text-sm lg:text-base ${isActive(
+                "/classes"
+              )}`}
+            >
+              Classes
+            </Link>
+          </div>
+
+          {/* Logo in Center */}
 
           {/* Right Navigation Links */}
           <div className="hidden md:flex space-x-6 items-center md:space-x-5">
             <Link
               to="/courses"
-              className={`text-white hover:text-gray-300 ${isActive(
+              className={`text-white hover:text-gray-300 text-sm lg:text-base ${isActive(
                 "/courses"
               )}`}
             >
@@ -92,13 +101,13 @@ const Navbar = ({ user, handleLogout }) => {
             </Link>
             <Link
               to="/shop"
-              className={`text-white hover:text-gray-300 ${isActive("/shop")}`}
+              className={`text-white hover:text-gray-300 text-sm lg:text-base ${isActive("/shop")}`}
             >
               Shop
             </Link>
             <Link
               to="/contact"
-              className={`text-white hover:text-gray-300 ${isActive(
+              className={`text-white hover:text-gray-300 text-sm lg:text-base ${isActive(
                 "/contact"
               )}`}
             >
@@ -128,7 +137,6 @@ const Navbar = ({ user, handleLogout }) => {
                 {/* Dropdown Menu */}
                 {isDropdownOpen && (
                   <div className="absolute right-0 mt-4 w-48 bg-white shadow-lg rounded-lg py-2">
-
                     <Link
                       to="/login"
                       className="px-4 py-2 text-gray-800 font-medium flex gap-2 hover:bg-gray-100"
@@ -136,13 +144,20 @@ const Navbar = ({ user, handleLogout }) => {
                       <span className="material-symbols-outlined">person</span>
                       {user.displayName}
                     </Link>
-
+                    
                     <Link
                       to="/yoga-library"
                       className="px-4 py-2 text-gray-800 font-medium flex gap-2 hover:bg-gray-100"
                     >
                       <span className="material-symbols-outlined">book</span>
                       Yoga Library
+                    </Link>
+                    <Link
+                      to="/online-classes"
+                      className="px-4 py-2 text-gray-800 font-medium flex gap-2 hover:bg-gray-100"
+                    >
+                      <span className="material-symbols-outlined">tv</span>
+                      Online Classes
                     </Link>
                     <Link
                       to="/progress-tracker"
@@ -175,7 +190,8 @@ const Navbar = ({ user, handleLogout }) => {
             ) : (
               <Link
                 to="/login"
-                className="bg-transparent border-2 text-white px-6 py-2 shadow-md hover:text-green-500 hover:border-green-500 hover:bg-gray-200/10 transition font-medium">
+                className="bg-transparent border-2 text-white px-5 py-2  shadow-md hover:text-gray-300 hover:border-gray-300 hover:bg-gray-200/10 transition font-medium"
+              >
                 Login
               </Link>
             )}

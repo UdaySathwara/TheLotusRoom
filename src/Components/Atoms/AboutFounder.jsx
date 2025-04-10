@@ -22,14 +22,14 @@ function AboutFounder(props) {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
-              className="text-xs font-semibold text-center bg-green-500 h-16 flex justify-center items-center absolute -top-4 left-1/2 transform -translate-x-1/2 md:-left-4 md:translate-x-0 p-3 text-white rounded-full w-36 shadow-md">
+              className="text-xs font-medium text-center bg-green-500 h-16 flex justify-center items-center absolute -top-4 left-1/2 transform -translate-x-1/2 md:-left-4 md:translate-x-0 p-3 text-white rounded-full w-36 shadow-md">
               <span className="material-symbols-outlined">calendar_today</span>
               12+ YEARS OF EXPERIENCE
             </motion.div>
           </div>
 
           {/* About Founder */}
-          <motion.div 
+          <div 
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -60,7 +60,7 @@ function AboutFounder(props) {
               that the divine energy given to humans is not wasted but utilized
               for a greater purpose.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
     );

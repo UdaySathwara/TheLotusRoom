@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const OnlineClasses = () => {
-  const [selectedVideo, setSelectedVideo] = useState(null);
-
   const yogaClasses = [
     {
       id: 1,
@@ -27,38 +26,6 @@ const OnlineClasses = () => {
     },
     {
       id: 3,
-      title: "Yoga for Beginners",
-      description: "Learn the basics of yoga with step-by-step instructions.",
-      day: "AnyDay",
-      duration: "15 minutes",
-      type: "recorded",
-      note : "For Everyone",
-      link: "https://www.youtube.com/watch?v=149Iac5fmoE",
-    },
-    {
-      id: 4,
-      title: "Yoga for Intermediate",
-      description:
-        "Improve your flexibility and strength with intermediate yoga techniques.",
-      day: "AnyDay",
-      duration: "30 minutes",
-      type: "recorded",
-      note : "For Everyone",
-      link: "https://youtu.be/U1cHGJYIwhA?si=fIm3b2bK31gOpd-8",
-    },
-    {
-      id: 5,
-      title: "Advanced Yoga",
-      description:
-        "Explore advanced yoga poses and techniques for a deeper practice.",
-      day: "AnyDay",
-      duration: "30 minutes",
-      type: "recorded",
-      note : "For Everyone",
-      link: "https://youtu.be/5AXUBLOUL4E?si=nzW7U6dWwHTP1aqa",
-    },
-    {
-      id: 6,
       title: "Power Yoga",
       description:
         "Unleash your inner power with power yoga techniques and poses.",
@@ -70,114 +37,69 @@ const OnlineClasses = () => {
     },
   ];
 
-  const handleJoinClass = (link, type) => {
-    if (type === "live") {
-      window.open(link, "_blank"); // Open Zoom link in a new tab
-    } else {
-      const videoId = extractYouTubeVideoId(link);
-      if (videoId) {
-        setSelectedVideo(`https://www.youtube.com/embed/${videoId}`);
-      } else {
-        window.open(link, "_blank");
-      }
-    }
-  };
-
-  const extractYouTubeVideoId = (url) => {
-    try {
-      const youtubeRegex =
-        /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-      const match = url.match(youtubeRegex);
-      return match ? match[1] : null;
-    } catch (error) {
-      return null;
-    }
-  };
-
-  const handleCloseModal = () => {
-    setSelectedVideo(null);
+  const navigate = useNavigate();
+  const handleJoinClass = (link) => {
+    window.open(link, "_blank"); // Open Zoom link in a new tab
   };
 
   return (
-    <div className="p-8 pb-16 bg-[#eddbcc] min-h-screen flex flex-col items-center">
-      <p className="text-xl mb-12 text-center max-w-xl">
-        Explore our yoga sessions and join live or recorded classes to enhance
-        your well-being.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
-        {yogaClasses.map((yogaClass) => (
-          <div
-            key={yogaClass.id}
-            className="p-6 bg-white rounded-md hover:shadow-lg transition-all border border-gray-200"
-          >
-            <h2 className="text-2xl font-semibold mb-3 text-orange-600">
-              {yogaClass.title}
-            </h2>
-            <p className="text-gray-600 mb-4">{yogaClass.description}</p>
-            <div className="mb-4">
-              <p className="text-gray-700">
-                <strong>Day :</strong> {yogaClass.day}
-              </p>
-              <p className="text-gray-700">
-                <strong>Time/Duration:</strong>{" "}
-                {yogaClass.time || yogaClass.duration}
-              </p>
-              <p className="text-gray-700">
-                <strong>Type :</strong>
-                <span
-                  className={`ml-2 font-semibold ${
-                    yogaClass.type === "live"
-                      ? "text-green-600"
-                      : "text-blue-600"
-                  }`}
-                >
-                  {yogaClass.type.charAt(0).toUpperCase() +
-                    yogaClass.type.slice(1)}
-                </span>
-              </p>
-              {yogaClass.note && (
-                <p className="text-gray-700">
-                  <strong>Note :</strong> {yogaClass.note}
-                </p>
-              )}
-            </div>
-            <button
-              onClick={() => handleJoinClass(yogaClass.link, yogaClass.type)}
-              className="w-full bg-[#8e5d36]/70 text-white font-semibold px-4 py-2 my-2 rounded-lg hover:bg-transparent hover:text-[#8e5d36] border border-[#8e5d36]/70 transition-all shadow-md"
-            >
-              {yogaClass.type === "live" ? "Join Live Class" : "Watch Video"}
-            </button>
-          </div>
-        ))}
+    <div className="flex flex-col min-h-screen bg-[#EDDBCC] text-black pb-12 p-4 ">
+      <div className="flex items-center justify-between lg:pb-6 pb-6 md:pb-6 p-4">
+        <span
+          className="material-symbols-outlined text-xl cursor-pointer xl:hidden "
+          onClick={() => navigate(-1)}
+        >
+          arrow_back_ios
+        </span>
+        <h2 className="text-2xl font-semibold text-center flex-1 text-black">
+          Online Classes
+        </h2>
       </div>
-
-      {/* Video Modal */}
-      {selectedVideo && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50 p-4 md:p-0">
-          <div className="py-12 relative flex items-center justify-center w-full md:w-1/2">
-            {/* Close Button */}
-            <button
-              onClick={handleCloseModal}
-              className="absolute top-0 right-0  text-white/60 hover:text-white rounded-full"
+      <div className="flex flex-col items-center">
+        <p className="text-xl mb-6 md:mb-12 text-center max-w-xl">
+          Join our online yoga classes and enhance your well-being.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+          {yogaClasses.map((yogaClass) => (
+            <div
+              key={yogaClass.id}
+              className="p-6 bg-white rounded-md hover:shadow-lg transition-all border border-gray-200"
             >
-              <span className="font-bold text-4xl">&times;</span>
-            </button>
-
-            {/* Embedded Video */}
-            <div className="relative w-full">
-              <iframe
-                width="100%"
-                height="400"
-                src={selectedVideo}
-                title="Yoga Video"
-                allowFullScreen
-                className=""
-              ></iframe>
+              <h2 className="text-2xl font-semibold mb-3 text-orange-600">
+                {yogaClass.title}
+              </h2>
+              <p className="text-gray-600 mb-4">{yogaClass.description}</p>
+              <div className="mb-4">
+                <p className="text-gray-700">
+                  <strong>Day :</strong> {yogaClass.day}
+                </p>
+                <p className="text-gray-700">
+                  <strong>Time:</strong> {yogaClass.time}
+                </p>
+                <p className="text-gray-700">
+                  <strong>Type :</strong>
+                  <span className="ml-2 font-semibold text-green-600">
+                    Live
+                  </span>
+                </p>
+                {yogaClass.note && (
+                  <p className="text-gray-700">
+                    <strong>Note :</strong> {yogaClass.note}
+                  </p>
+                )}
+              </div>
+              <button
+                onClick={() => handleJoinClass(yogaClass.link)}
+                className="w-full bg-[#8e5d36]/70 text-white font-semibold px-4 py-2 my-2 rounded-lg hover:bg-transparent hover:text-[#8e5d36] border border-[#8e5d36]/70 transition-all shadow-md"
+              >
+                Join Live Class
+              </button>
             </div>
-          </div>
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };
+
 export default OnlineClasses;

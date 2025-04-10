@@ -1,6 +1,5 @@
 import React from "react";
 import Schedule from "../Components/Atoms/Schedule";
-import OnlineClasses from "../Components/Atoms/OnlineClasses";
 
 function Classes() {
   return (
@@ -29,7 +28,6 @@ function Classes() {
 
       <Schedule />
 
-      <OnlineClasses />
     </div>
   );
 }

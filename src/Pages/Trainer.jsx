@@ -144,16 +144,16 @@ function Trainer(props) {
       </section>
 
       <div className="flex flex-col justify-center items-center p-10 min-h-[700px] bg-[#eddbcc]">
-        <motion.div 
+        <div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5 }}
         className=" p-6 text-center max-w-[600px] mx-auto mb-5">
           <p className="font-semibold text-4xl">Meet the Experts</p>
-        </motion.div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mt-10  max-w-7xl w-full mx-auto">
           {trainers.map((trainer, index) => (
-            <motion.div
+            <div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5 }} 
@@ -165,14 +165,14 @@ function Trainer(props) {
                 alt={trainer.name}
                 className="w-full h-64 mx-auto rounded-xl object-cover"
               />
-              <motion.h4 
+              <h4 
 
-              className="text-lg font-semibold mt-4">{trainer.name}</motion.h4>
+              className="text-lg font-semibold mt-4">{trainer.name}</h4>
               <p className="text-gray-600 mt-4">{trainer.role}</p>
               <p className="text-gray-600">{trainer.degree}</p>
               <p className="text-gray-600">{trainer.experience}</p>
               <p className="text-gray-600 mt-4">{trainer.description}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

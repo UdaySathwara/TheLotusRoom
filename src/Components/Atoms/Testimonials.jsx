@@ -58,56 +58,67 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <div className="py-14 bg-[#eddbcc]">
-    <div className="space-y-6 px-6 text-center max-w-xl mx-auto mb-5">
-      <h1 className="uppercase font-semibold text-orange-600 text-lg md:text-xl">
-        OUR TESTIMONIALS
-      </h1>
-      <p className="font-semibold text-2xl md:text-3xl">
-        What People Are Saying
-      </p>
-    </div>
+      <div className="space-y-6 px-6 text-center max-w-xl mx-auto mb-5">
+        <h1 className="uppercase font-semibold text-orange-600 text-lg md:text-xl">
+          OUR TESTIMONIALS
+        </h1>
+        <p className="font-semibold text-2xl md:text-3xl">
+          What People Are Saying
+        </p>
+      </div>
 
-    <div className="container mx-auto px-4">
-      <Swiper
-        modules={[Pagination, Autoplay, Navigation]}
-        spaceBetween={15}
-        slidesPerView={1}
-        breakpoints={{
-          640: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-        navigation
-      >
-        {testimonials.map((testimonial, index) => (
-          <SwiperSlide key={index}>
-            <div className="my-6 flex flex-col p-6 md:p-8 shadow-lg rounded-xl mx-2 md:mx-4 bg-white relative">
-              <div className="flex items-center gap-4">
+      <div className="container mx-auto px-10 relative">
+        {/* Navigation buttons */}
+        <button className="swiper-button-prev-custom absolute top-1/2 left-2 z-10 transform -translate-y-1/2 p-2 rounded-full">
+          <img src="https://cdn-icons-png.flaticon.com/512/318/318275.png" alt="" className="w-6 h-6 rotate-180"/>
+        </button>
+        <button className="swiper-button-next-custom absolute top-1/2 right-2 z-10 transform -translate-y-1/2 p-2 rounded-full">
+          <img src="https://cdn-icons-png.flaticon.com/512/318/318275.png" alt="" className="w-6 h-6"/>
+        </button>
+
+        <Swiper
+          modules={[Pagination, Autoplay, Navigation]}
+          spaceBetween={15}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          navigation={{
+            nextEl: ".swiper-button-next-custom",
+            prevEl: ".swiper-button-prev-custom",
+          }}
+        >
+          {testimonials.map((testimonial, index) => (
+            <SwiperSlide key={index} className="mb-4">
+              <div className="my-6 flex flex-col p-6 md:p-8 shadow-lg rounded-xl mx-2 md:mx-4 bg-white relative transition-transform duration-300 hover:scale-105 h-80">
+                <div className="flex items-center gap-4">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="rounded-full w-14 h-14 md:w-16 md:h-16 object-cover"
+                  />
+                  <p className="text-lg md:text-xl font-bold text-black/80">
+                    {testimonial.name}
+                  </p>
+                </div>
+                <div className="py-4 space-y-4 flex flex-1 flex-col justify-between">
+                  <p className="text-sm text-gray-500">{testimonial.text}</p>
+                  <p className="text-yellow-500">⭐⭐⭐⭐⭐</p>
+                </div>
                 <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="rounded-full w-14 h-14 md:w-16 md:h-16 object-cover"
+                  src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
+                  alt="Quote"
+                  className="w-8 h-8 md:w-8 md:h-8 absolute top-4 right-4 bg-[#f5dfcd] p-1 md:p-2 rounded-full"
                 />
-                <p className="text-lg md:text-xl font-bold text-black/80">
-                  {testimonial.name}
-                </p>
               </div>
-              <div className="py-4 md:py-6 space-y-4">
-                <p className="text-sm text-gray-500">{testimonial.text}</p>
-                <p className="text-yellow-500">⭐⭐⭐⭐⭐</p>
-              </div>
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
-                alt="Quote"
-                className="w-8 h-8 md:w-10 md:h-10 absolute top-4 right-4 bg-[#f5dfcd] p-1 md:p-2 rounded-full"
-              />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
-  </div>
   );
 }

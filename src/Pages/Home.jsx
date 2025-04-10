@@ -2,9 +2,7 @@ import React from "react";
 import Testimonials from "../Components/Atoms/Testimonials";
 import AboutFounder from "../Components/Atoms/AboutFounder";
 import HomeCourses from "../Components/Atoms/HomeCourses";
-import Schedule from "../Components/Atoms/Schedule";
 import Services from "../Components/Atoms/Services";
-import HomeTrainer from "../Components/Atoms/HomeTrainer";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -56,12 +54,6 @@ function Home() {
 
       {/* Cources */}
       <HomeCourses />
-
-      {/* Trainer */}
-      <HomeTrainer />
-
-      {/* Clases  */}
-      <Schedule />
 
       {/* Testimonials */}
       <Testimonials />

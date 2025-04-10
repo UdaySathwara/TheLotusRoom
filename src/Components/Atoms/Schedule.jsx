@@ -25,7 +25,7 @@ function Schedule() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center p-2 min-h-[600px] bg-gray-50">
+    <div className="flex flex-col justify-center items-center p-2 min-h-screen bg-gray-50">
       <div className="space-y-2 p-6 text-center max-w-[600px] mx-auto mb-5 relative">
         <h1 className="uppercase font-semibold text-orange-600">GET TO KNOW</h1>
         <p className="font-semibold text-4xl pb-2">OUR CLASSES</p>

@@ -7,7 +7,6 @@ import Navbar from "./Components/Atoms/Navbar";
 import Footer from "./Components/Atoms/Footer";
 import Services from "./Components/Atoms/Services";
 import HomeCourses from "./Components/Atoms/HomeCourses";
-import HomeTrainer from "./Components/Atoms/HomeTrainer";
 import Testimonials from "./Components/Atoms/Testimonials";
 import About from "./Pages/About";
 import AboutFounder from "./Components/Atoms/AboutFounder";
@@ -39,7 +38,7 @@ import BacktoTop from "./Components/Atoms/Backtotop";
 
 const AppContent = ({ user, handleLogout }) => {
   const location = useLocation(); 
-  const hideNavbarPaths = ["/detail-yoga-spice", "/detail-pink-mat", "/cart", "/detail-yoga-wheel", "/detail-blue-mat", "/detail-yoga-pillow", "/detail-yoga-blanket", "/detail-yoga-strap", "/detail-bumpy-foam-roller", "/checkout", "/login", "/forgot-password", "/sign-up", "/yoga-library", "/Login" , "/progress-tracker" , "/my-orders" , "/privacy-policy" ,"/terms-and-conditions"]; 
+  const hideNavbarPaths = ["/detail-yoga-spice", "/detail-pink-mat", "/cart", "/detail-yoga-wheel", "/detail-blue-mat", "/detail-yoga-pillow", "/detail-yoga-blanket", "/detail-yoga-strap", "/detail-bumpy-foam-roller", "/checkout", "/login", "/forgot-password", "/sign-up", "/yoga-library", "/Login" , "/progress-tracker" , "/my-orders" , "/privacy-policy" ,"/terms-and-conditions", "/online-classes",]; 
 
   return (
     <>
@@ -48,7 +47,6 @@ const AppContent = ({ user, handleLogout }) => {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/home-courses" element={<HomeCourses />} />
-        <Route path="/home-trainer" element={<HomeTrainer />} />
         <Route path="/about" element={<About />} />
         <Route path="/about-founder" element={<AboutFounder />} />
         <Route path="/testimonial" element={<Testimonials />} />
