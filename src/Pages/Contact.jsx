@@ -1,34 +1,46 @@
-import React, { useState } from "react";
+import React from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { SendHorizonal } from "lucide-react";
+
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    mobile: "",
-    email: "",
-    message: "",
+  // Form validation schema with Yup
+  const validationSchema = Yup.object({
+    fullName: Yup.string().required("Full name is required"),
+    mobile: Yup.string()
+      .matches(/^\d{10}$/, "Mobile number must be 10 digits")
+      .required("Mobile number is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    message: Yup.string().required("Message is required"),
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
+  // Formik hook to handle form state and submission
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      mobile: "",
+      email: "",
+      message: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      const { fullName, mobile, email, message } = values;
+      const phoneNumber = "919316024754"; // Replace with your WhatsApp number (with country code, no + sign)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+      const whatsappMessage = `https://wa.me/${phoneNumber}?text=Name: ${encodeURIComponent(
+        fullName
+      )}%0AMobile: ${encodeURIComponent(mobile)}%0AEmail: ${encodeURIComponent(
+        email
+      )}%0AMessage: ${encodeURIComponent(message)}%0A"Please Response Back if possible"`;
 
-    const { fullName, mobile, email, message } = formData;
-    const phoneNumber = "919316024754"; // Replace with your WhatsApp number (with country code, no + sign)
+      window.open(whatsappMessage, "_blank"); // Open WhatsApp
 
-    const whatsappMessage = `https://wa.me/${phoneNumber}?text=
-      Name: ${encodeURIComponent(fullName)}
-      %0AMobile: ${encodeURIComponent(mobile)}
-      %0AEmail: ${encodeURIComponent(email)}
-      %0AMessage: ${encodeURIComponent(message)}
-      %0A"Please Response Back if possible"`;
-
-    window.open(whatsappMessage, "_blank"); // Open WhatsApp
-
-    setFormData({ fullName: "", mobile: "", email: "", message: "" }); // Clear form
-  };
+      formik.resetForm(); // Clear form after submission
+    },
+  });
 
   const locations = [
     {
@@ -75,9 +87,7 @@ function Contact() {
       >
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 max-w-3xl px-4">
-          <h2 className="text-4xl md:text-5xl font-medium text-white">
-            Contact Us
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-medium text-white">Contact Us</h2>
           <p className="text-lg md:text-xl text-white mt-4 font-serif">
             We would love to hear from you! Reach out to us through our contact.
           </p>
@@ -117,7 +127,7 @@ function Contact() {
       <div className="bg-[#FDF2E7]  lg:px-10 p-4 md:px-10 flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/2 p-4">
           <h1 className="text-3xl font-bold mb-6 text-[#955721]">Message Us</h1>
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-4" onSubmit={formik.handleSubmit}>
             <div className="flex flex-col lg:flex-row lg:space-x-4">
               <div className="w-full lg:w-1/2">
                 <label
@@ -131,10 +141,13 @@ function Contact() {
                   id="fullName"
                   placeholder="Name"
                   type="text"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  required
+                  value={formik.values.fullName}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
+                {formik.touched.fullName && formik.errors.fullName && (
+                  <div className="text-red-500 text-sm">{formik.errors.fullName}</div>
+                )}
               </div>
               <div className="w-full lg:w-1/2">
                 <label
@@ -148,10 +161,13 @@ function Contact() {
                   id="mobile"
                   placeholder="Mobile"
                   type="text"
-                  value={formData.mobile}
-                  onChange={handleChange}
-                  required
+                  value={formik.values.mobile}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
+                {formik.touched.mobile && formik.errors.mobile && (
+                  <div className="text-red-500 text-sm">{formik.errors.mobile}</div>
+                )}
               </div>
             </div>
             <div>
@@ -166,10 +182,13 @@ function Contact() {
                 id="email"
                 placeholder="Email"
                 type="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
+              {formik.touched.email && formik.errors.email && (
+                <div className="text-red-500 text-sm">{formik.errors.email}</div>
+              )}
             </div>
             <div>
               <label
@@ -182,23 +201,21 @@ function Contact() {
                 className="w-full border-b border-gray-300 py-2 focus:outline-none bg-[#fdf2e7]"
                 id="message"
                 placeholder="Message"
-                value={formData.message}
-                onChange={handleChange}
-                required
+                value={formik.values.message}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               ></textarea>
+              {formik.touched.message && formik.errors.message && (
+                <div className="text-red-500 text-sm">{formik.errors.message}</div>
+              )}
             </div>
             <div>
-            <button
+              <button
                 type="submit"
-                className="bg-green-500 text-white py-2 px-4 rounded shadow-md hover:bg-white hover:border-green-500 hover:text-green-500 border focus:outline-none flex gap-4 justify-center items-center"
+                className="bg-green-500 text-white py-2 px-4 rounded shadow-md hover:bg-white hover:border-green-500 hover:text-green-500 border focus:outline-none flex gap-2 justify-center items-center text-base"
               >
-                Send Via Whatsapp
-                <img
-                  src="https://img.icons8.com/?size=100&id=16712&format=png&color=40C057"
-                  alt="Normal Icon"
-                  className="w-8 h-8 duration-300 translate-all"
-                />
-                
+                Send Message
+                <SendHorizonal className="inline size-5 mt-[2px]" />
               </button>
             </div>
           </form>

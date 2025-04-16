@@ -57,7 +57,7 @@ const Cart = () => {
           <div className="flex justify-end mt-4">
             <button
               className="mr-4 px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-200"
-              onClick={() => setShowLoginPrompt(false)}
+              onClick={() => navigate(-1)}
             >
               Cancel
             </button>

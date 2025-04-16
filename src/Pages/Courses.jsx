@@ -1,5 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 function Courses() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -10,6 +12,36 @@ function Courses() {
     mobile: "",
     course: "",
     message: "",
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      mobile: "",
+      course: selectedCourse,
+      message: "",
+    },
+    enableReinitialize: true,
+    validationSchema: Yup.object({
+      name: Yup.string().required("Name is required"),
+      email: Yup.string().email("Invalid email").required("Email is required"),
+      mobile: Yup.string()
+        .matches(/^\d{10}$/, "Mobile must be a 10-digit number")
+        .required("Mobile is required"),
+    }),
+    onSubmit: (values) => {
+      const { name, email, mobile, course, message } = values;
+      const whatsappNumber = "919316024754";
+      const whatsappMessage = `Hello, I am interested in the ${course}.\n\nName: ${name}\nEmail: ${email}\nMobile: ${mobile}\nMessage: ${
+        message || "N/A"
+      }`;
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+        whatsappMessage
+      )}`;
+      window.open(whatsappUrl, "_blank");
+      closeModal();
+    },
   });
 
   const courses = [
@@ -145,7 +177,6 @@ function Courses() {
 
   return (
     <div>
-
       <section
         className="flex flex-col items-center justify-center text-center h-screen w-full bg-cover bg-no-repeat relative p-6"
         style={{
@@ -252,7 +283,8 @@ function Courses() {
               <img
                 src={course.image}
                 alt={course.name}
-                className="w-full h-72 object-cover rounded-2xl"/>
+                className="w-full h-72 object-cover rounded-2xl"
+              />
               <div className="p-2 flex flex-col gap-1 text-center bg-[#eddbcc] text-black mx-8 rounded-xl text-xs text-extra-bold relative bottom-5">
                 <p className="flex justify-center items-center">
                   <strong>
@@ -264,7 +296,9 @@ function Courses() {
                 </p>
                 <p className="flex justify-center items-center">
                   <strong>
-                    <span className="material-symbols-outlined px-2">payments</span>
+                    <span className="material-symbols-outlined px-2">
+                      payments
+                    </span>
                   </strong>
                   COURCE FEES: {course.fees}
                 </p>
@@ -303,52 +337,67 @@ function Courses() {
             </h2>
 
             {/* Form Fields */}
-            <div className="space-y-4">
+            <form onSubmit={formik.handleSubmit} className="space-y-4">
               <div>
                 <label className="text-black font-serif text-sm">Name</label>
                 <input
-                  type="text"
                   name="name"
-                  placeholder="Enter Your Name Here"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full p-2 border border-orange-300 rounded-md focus:ring-1 mt-1 focus:ring-orange-500 focus:outline-none placeholder:text-sm"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.name}
+                  className="w-full p-2 border rounded-md mt-1"
+                  placeholder="Enter your name"
                 />
+                {formik.touched.name && formik.errors.name && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formik.errors.name}
+                  </p>
+                )}
               </div>
 
               <div>
-                <label className="text-black font-serif text-sm">Email Address</label>
+                <label className="text-black font-serif text-sm">Email</label>
                 <input
                   type="email"
                   name="email"
-                  placeholder="Enter Your Email Here"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full p-2 border border-orange-300 rounded-md focus:ring-1 mt-1 focus:ring-orange-500 focus:outline-none placeholder:text-sm"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                  className="w-full p-2 border rounded-md mt-1"
+                  placeholder="Enter your email"
                 />
+                {formik.touched.email && formik.errors.email && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formik.errors.email}
+                  </p>
+                )}
               </div>
 
               <div>
-                <label className="text-black font-serif text-sm">Mobile No</label>
-                <input
-                  type="tel"
-                  name="mobile"
-                  placeholder="Enter Your Contact No"
-                  value={formData.mobile}
-                  onChange={handleChange}
-                  pattern="[0-9]{10}"
-                  className="w-full p-2 border border-orange-300 rounded-md focus:ring-1 mt-1 focus:ring-orange-500 focus:outline-none placeholder:text-sm"
-                />
-              </div>
-
-              <div>
-                <label className="text-black text-sm  font-serif">Course Name</label>
+                <label className="text-black font-serif text-sm">Mobile</label>
                 <input
                   type="text"
+                  name="mobile"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.mobile}
+                  className="w-full p-2 border rounded-md mt-1"
+                  placeholder="Enter your mobile number"
+                />
+                {formik.touched.mobile && formik.errors.mobile && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formik.errors.mobile}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="text-black font-serif text-sm">Course</label>
+                <input
                   name="course"
                   value={selectedCourse}
                   readOnly
-                  className="w-full p-2 border border-orange-300 focus:ring-1 mt-1 focus:ring-orange-500 focus:outline-none bg-gray-100 rounded-md cursor-not-allowed text-sm"
+                  className="w-full p-2 border bg-gray-200/70 rounded-md mt-1 cursor-not-allowed"
                 />
               </div>
 
@@ -356,30 +405,30 @@ function Courses() {
                 <label className="text-black font-serif text-sm">Message</label>
                 <textarea
                   name="message"
+                  rows={3}
+                  onChange={formik.handleChange}
+                  value={formik.values.message}
+                  className="w-full p-2 border rounded-md mt-1"
                   placeholder="Message (optional)"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full p-2 border border-orange-300 rounded-md focus:ring-1 mt-1 focus:ring-orange-500 focus:outline-none placeholder:text-sm"
-                  rows="3"
-                ></textarea>
+                />
               </div>
-            </div>
 
-            {/* Buttons: Cancel (left) & Submit (right) */}
-            <div className="mt-6 flex justify-between">
-              <button
-                onClick={closeModal}
-                className="px-8 py-2 hover:bg-red-600 text-red-600 rounded-md bg-white hover:text-white border border-red-500 transition"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleSubmit}
-                className="px-6 py-2 bg-orange-500 text-white rounded-md hover:bg-white hover:text-orange-500 border border-orange-500 transition"
-              >
-                Submit
-              </button>
-            </div>
+              <div className="mt-6 flex justify-between">
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  className="px-8 py-2 hover:bg-red-600 text-red-600 rounded-md bg-white hover:text-white border border-red-500 transition"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-6 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
