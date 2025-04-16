@@ -55,9 +55,9 @@ const Checkout = () => {
       streetAddress: Yup.string().required("Address is Required"),
       city: Yup.string().required("Select a City"),
       zipCode: Yup.string().required("Zip Code is Required"),
-      phone: Yup.string().required("Phone Number is Required") .matches(
-        /^[0-9]{10}$/, "Phone number must be 10 digits"
-      ),
+      phone: Yup.string()
+        .required("Phone Number is Required")
+        .matches(/^[0-9]{10}$/, "Phone number must be 10 digits"),
       email: Yup.string().email("Invalid email").required("Email is Required"),
     }),
     onSubmit: handlePlaceOrder,
@@ -107,10 +107,15 @@ const Checkout = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:px-8 md:px-6">
         <div>
-          <h2 className="text-2xl font-medium mb-4 font-serif">Billing Details</h2>
+          <h2 className="text-2xl font-medium mb-4 font-serif">
+            Billing Details
+          </h2>
           <form onSubmit={formik.handleSubmit}>
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-1" htmlFor="first-name">
+              <label
+                className="block text-sm font-medium mb-1"
+                htmlFor="first-name"
+              >
                 First name <span className="text-red-500">*</span>
               </label>
               <input
@@ -123,12 +128,17 @@ const Checkout = () => {
                 value={formik.values.firstName}
               />
               {formik.touched.firstName && formik.errors.firstName && (
-                <p className="text-red-500 text-sm">{formik.errors.firstName}</p>
+                <p className="text-red-500 text-sm">
+                  {formik.errors.firstName}
+                </p>
               )}
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-1" htmlFor="last-name">
+              <label
+                className="block text-sm font-medium mb-1"
+                htmlFor="last-name"
+              >
                 Last name <span className="text-red-500">*</span>
               </label>
               <input
@@ -146,7 +156,10 @@ const Checkout = () => {
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-1" htmlFor="country">
+              <label
+                className="block text-sm font-medium mb-1"
+                htmlFor="country"
+              >
                 Country / Region <span className="text-red-500">*</span>
               </label>
               <select
@@ -161,7 +174,10 @@ const Checkout = () => {
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-1" htmlFor="street-address">
+              <label
+                className="block text-sm font-medium mb-1"
+                htmlFor="street-address"
+              >
                 Street address <span className="text-red-500">*</span>
               </label>
               <input
@@ -175,7 +191,9 @@ const Checkout = () => {
                 value={formik.values.streetAddress}
               />
               {formik.touched.streetAddress && formik.errors.streetAddress && (
-                <p className="text-red-500 text-sm">{formik.errors.streetAddress}</p>
+                <p className="text-red-500 text-sm">
+                  {formik.errors.streetAddress}
+                </p>
               )}
               <input
                 type="text"
@@ -188,7 +206,10 @@ const Checkout = () => {
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-1" htmlFor="town-city">
+              <label
+                className="block text-sm font-medium mb-1"
+                htmlFor="town-city"
+              >
                 Town / City <span className="text-red-500">*</span>
               </label>
               <select
@@ -223,7 +244,10 @@ const Checkout = () => {
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-1" htmlFor="zip-code">
+              <label
+                className="block text-sm font-medium mb-1"
+                htmlFor="zip-code"
+              >
                 ZIP Code <span className="text-red-500">*</span>
               </label>
               <input
@@ -279,9 +303,14 @@ const Checkout = () => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-medium font-serif mb-4">Additional Information</h2>
+          <h2 className="text-2xl font-medium font-serif mb-4">
+            Additional Information
+          </h2>
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-1" htmlFor="order-notes">
+            <label
+              className="block text-sm font-medium mb-1"
+              htmlFor="order-notes"
+            >
               Order notes (optional)
             </label>
             <textarea
@@ -302,8 +331,12 @@ const Checkout = () => {
         <table className="w-full border-orange-500 mb-8">
           <thead>
             <tr className="border-b border-orange-500">
-              <th className="text-left p-2 border-b border-orange-500">Product</th>
-              <th className="text-right p-2 border-b border-orange-500">Subtotal</th>
+              <th className="text-left p-2 border-b border-orange-500">
+                Product
+              </th>
+              <th className="text-right p-2 border-b border-orange-500">
+                Subtotal
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -318,7 +351,9 @@ const Checkout = () => {
               </tr>
             ))}
             <tr>
-              <td className="p-2 border-b border-orange-500 font-semibold">Total</td>
+              <td className="p-2 border-b border-orange-500 font-semibold">
+                Total
+              </td>
               <td className="text-right p-2 border-b border-orange-500 font-semibold">
                 ₹ {totalPrice}.00
               </td>
@@ -327,7 +362,9 @@ const Checkout = () => {
         </table>
 
         <div className="mb-3">
-          <label className="block text-2xl font-serif font-medium mb-3">Payment method</label>
+          <label className="block text-2xl font-serif font-medium mb-3">
+            Payment method
+          </label>
           <div className="text-lg">
             <input
               type="radio"
@@ -341,9 +378,10 @@ const Checkout = () => {
         </div>
 
         <p className="text-base text-gray-600 mb-2">
-          Your personal data will be used to process your order, support your experience throughout
-          this website, and for other purposes described in our
-          <a href="#" className="text-orange-500 hover:underline pl-1">
+          Your personal data will be used to process your order, support your
+          experience throughout this website, and for other purposes described
+          in our
+          <a href="/privacy-policy" className="text-orange-500 hover:underline pl-1">
             privacy policy.
           </a>
         </p>

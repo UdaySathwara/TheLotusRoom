@@ -261,7 +261,7 @@ const Cart = () => {
                       Cancel
                     </button>
                     <button
-                      className="px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600"
+                      className="px-4 py-2 text-white bg-red-500 rounded-lg hover:border-red-500 hover:bg-white hover:text-red-500 border"
                       onClick={confirmDelete}
                     >
                       Delete
