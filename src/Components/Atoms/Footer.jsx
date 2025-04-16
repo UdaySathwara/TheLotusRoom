@@ -18,7 +18,7 @@ export default function Footer() {
 
         {/* Contact Information */}
         <div className="flex flex-col gap-2 lg:pr-16">
-          <h3 className="text-lg font-semibold text-orange-500">Contact Us</h3>
+          <h3 className="text-lg font-semibold text-orange-500">Contact</h3>
           <p className="mt-2 text-center px-8 md:px-16 lg:text-left lg:px-0">
             <MapPin className="inline" /> 723 The Lotus Room, Science City,
             Ahmedabad, Gujarat 380060
@@ -71,10 +71,10 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="border-t border-gray-700 mt-8 pt-4 text-sm flex flex-col md:flex-row justify-between items-center px-6 text-center lg:text-left gap-3">
-        <div className="hidden md:block">
+        <div className="hidden md:block text-center md:text-left text-gray-400">
           © {new Date().getFullYear()} The Lotus Room. All Rights Reserved.
         </div>
-        <div className="flex flex-col md:flex-row md:gap-3 gap-2 text-center">
+        <div className="flex flex-col md:flex-row md:gap-3 gap-2 text-center text-gray-400">
           <a
             href="/privacy-policy"
             className="hover:text-orange-400 transition underline underline-offset-2"

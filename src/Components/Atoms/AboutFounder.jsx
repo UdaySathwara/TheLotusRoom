@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 function AboutFounder(props) {
     return (
         <div className="max-w-full mx-auto p-6 min-h-[800px] flex justify-center items-center bg-[#eddbcc]  relative">
-        <span className="text-2xl left-0 absolute text-orange-900">
+        <span className="text-2xl left-0 absolute text-orange-900 hidden md:block">
           ___________________
         </span>
-        <span className="text-2xl right-0 absolute text-orange-900">
+        <span className="text-2xl right-0 absolute text-orange-900 hidden md:block">
           ___________________
         </span>
         <div className="bg-white shadow-lg rounded-2xl p-6 flex flex-col md:flex-row gap-6 relative max-w-4xl">
@@ -22,7 +22,7 @@ function AboutFounder(props) {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
-              className="text-xs font-medium text-center bg-green-500 h-16 flex justify-center items-center absolute -top-4 left-1/2 transform -translate-x-1/2 md:-left-4 md:translate-x-0 p-3 text-white rounded-full w-36 shadow-md">
+              className="text-xs font-medium text-center bg-green-500 h-16 flex justify-center items-center absolute -top-4 right-1/2 transform -translate-x-1/2 md:-left-4 md:translate-x-0 p-3 text-white rounded-full w-36 shadow-md">
               <span className="material-symbols-outlined">calendar_today</span>
               12+ YEARS OF EXPERIENCE
             </motion.div>
