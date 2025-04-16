@@ -42,7 +42,7 @@ export default function Footer() {
           <h3 className="text-lg font-semibold text-orange-500 ">Follow Us</h3>
           <div className="flex justify-center lg:justify-start gap-3 mt-3">
             <a
-              className="text-gray-400 hover:text-orange-500 mr-2"
+              className="text-gray-300 hover:text-orange-500 mr-2"
               href="https://www.facebook.com/"
             >
               <i className="fab fa-facebook-f"></i>
@@ -71,10 +71,10 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="border-t border-gray-700 mt-8 pt-4 text-sm flex flex-col md:flex-row justify-between items-center px-6 text-center lg:text-left gap-3">
-        <div className="hidden md:block text-center md:text-left text-gray-400">
+        <div className="hidden md:block text-center md:text-left text-gray-300">
           © {new Date().getFullYear()} The Lotus Room. All Rights Reserved.
         </div>
-        <div className="flex flex-col md:flex-row md:gap-3 gap-2 text-center text-gray-400">
+        <div className="flex flex-col md:flex-row md:gap-3 gap-2 text-center text-gray-300">
           <a
             href="/privacy-policy"
             className="hover:text-orange-400 transition underline underline-offset-2"
