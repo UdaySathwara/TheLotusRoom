@@ -209,7 +209,7 @@ const DetailBumpyFoamRoller = () => {
                 />
                 <Link
                   to={product.path}
-                  className="absolute inset-0 bg-[#eddbcc] bg-opacity-100 text-[#8E5D36] text-xl font-semibold flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 bg-[#eddbcc] bg-opacity-100 text-[#6d3e17] text-xl font-semibold flex items-center justify-center opacity-0 group-hover:opacity-75 transition-opacity duration-300 ease-in-out"
                 >
                   View More
                 </Link>

@@ -133,15 +133,15 @@ const ProductGrid = () => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="relative text-center group p-4  w-full max-w-[300px] flex flex-col justify-between mx-auto">
+              className="relative text-center group p-4 w-full max-w-[300px] flex flex-col justify-between mx-auto hover:scale-[1.02] transition-transform duration-300 ease-in-out">
               <div className="relative">
                 <img
                   src={product.img}
                   alt={product.name}
-                  className="mx-auto rounded-md h-[300px] w-[300px] object-cover hover:scale-105"/>
+                  className="mx-auto rounded-md h-[300px] w-[300px] object-cover"/>
                 <Link
                   to={product.path}
-                  className="absolute inset-0 bg-[#eddbcc] bg-opacity-100 text-[#8E5D36] text-xl font-semibold flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  className="absolute inset-0 bg-[#eddbcc] bg-opacity-100 text-[#6d3e17] text-xl font-semibold flex items-center justify-center opacity-0 group-hover:opacity-75 transition-opacity duration-300">
                   View More
                 </Link>
               </div>
