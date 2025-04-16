@@ -26,7 +26,7 @@ export default function Footer() {
           <p className="text-center lg:text-left">
             <Phone className="inline" /> +91 9989725624
           </p>
-          <p className="text-center lg:text-left">
+          <p className="text-center lg:text-left hover:text-orange-500">
             <Mail className="inline" />{" "}
             <a
               href="mailto:lotusroom@gmail.com"
