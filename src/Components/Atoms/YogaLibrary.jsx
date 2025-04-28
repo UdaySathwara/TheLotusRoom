@@ -185,7 +185,7 @@ const YogaPoseLibrary = () => {
           arrow_back_ios
         </span>
         <h2 className="text-2xl font-semibold text-center flex-1 text-black">
-          Yoga Pose Animation Library
+          Yoga Library
         </h2>
       </div>
       <div className="flex flex-col items-center">
